@@ -65,14 +65,22 @@ namespace Schiffe_Versenken
                 database.insertField(size, playerID);
         }
 
-        //löscht Spielfeld
+        /// <summary>
+        /// löscht Spielfeld
+        /// </summary>
+        /// <param name="size">Größe des Spielfeldes</param>
         public void removeField(int size)
         {
             using (getDbkConnection())
                 database.deleteField(size);
         }
 
-        //erstellt Spiel
+        /// <summary>
+        /// Erstellt Spielfeld
+        /// </summary>
+        /// <param name="difficulty">Eingestellte Schwierigkeitsstufe</param>
+        /// <param name="playerID">ID des Spielers</param>
+        /// <param name="size">Größe des Spielfeldes</param>
         public void createGame(string difficulty, int playerID, int size)
         {
             using (getDbkConnection())
