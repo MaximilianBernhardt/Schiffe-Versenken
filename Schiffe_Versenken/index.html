@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>Schiffe versenken</title>
+
+    <script src="Scripts/jquery-1.6.4.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.2.js"></script>
+    <script src="/signalr/hubs"></script>
+
+    <!--<script src="/Scripts/script.js" type="text/javascript"></script>-->
+    <!--<script src="/Scripts/gameScript.js" type="text/javascript"></script>-->
+
+    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/generate_fields.js" type="text/javascript"></script>
+    <script src="js/globals.js" type="text/javascript"></script>
+    <script src="js/receive_msg.js" type="text/javascript"></script>
+    <script src="js/shipColission.js" type="text/javascript"></script>
+    <!--<script src="js/dd_shipPosition.js" type="text/javascript"></script>-->
+
+    <script src="/Scripts/setShipScript.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="css/main.css" />
+
+</head>
+<body>
+    <!--<div id="loadingscreen"></div>-->
+    <!--<div id="timeoutBox"></div>-->
+
+    <div class="section_one page">
+        <h1>Schiffe versenken</h1> </br>
+        <div class="section_one_login">
+            <input id="userName" type="text" placeholder=" Name" maxlength="9" />
+            <button id="submitName">Login</button>
+            <p id="errorMsg"></p>
+        </div>
+    </div>
+    <div class="section_two page">
+        <div class="section_two_creategame">
+            <h2>Spiel erstellen</h2>
+            <table class="section_two_creategame_table">
+                <tr>
+                    <td><p>Größe: </p></td>
+                    <td><select id="fieldSize">
+                        <option>15</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><p>Schwierigkeitsgrad: </p></td>
+                    <td><select id="difficulty">
+                        <option>Leicht</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><p>Einladungs-Code: </p></td>
+                    <td><input id="matchID" type="number" placeholder=" MatchID"></td>
+                </tr>
+            </table>
+            <button id="nextPage">Erstellen</button>
+            <p id="errorMatchID"></p>
+        </div>
+    </div>
+
+    <div class="section_three page">
+        <p id="conCode"></p>
+        <div class="section_three_interface">
+            <div class="section_three_shipCounter">
+                <div class="battleshipCounter shipCounter"></div>
+                <div class="cruiserCounter shipCounter"></div>
+                <div class="destroyerCounter shipCounter"></div>
+                <div class="submarineCounter shipCounter"></div>
+                <div class="dinghyCounter shipCounter"></div>
+            </div>
+            <div class="section_three_left">
+                <div class="btn_battleship ship_selection"><p></p></div>
+                <div class="btn_cruiser ship_selection"><p></p></div>
+                <div class="btn_destroyer ship_selection"><p></p></div>
+                <div class="btn_submarine ship_selection"><p></p></div>
+                <div class="btn_dinghy ship_selection"><p></p></div>
+                <button id="btn_back">Zurücksetzen</button>
+                <button id="btn_startgame">Bestätigen</button>
+                <p id="errorShips"></p>
+            </div>
+
+            <div class="section_myField_create">
+
+            </div>
+        </div>
+    </div>
+    <div class="section_four page">
+        <div class="section_four_waiting">
+            <h1 class="waitingMsg">Warte auf Spieler/in</h1>
+            <div class="loader"></div>
+        </div>
+
+    </div>
+
+    <div class="section_five page">
+        <div class="section_five_interface">
+            <div class="gameInfoContainer">
+                <p class="gameInfo_myHits">Deine Treffer: 0/25</p>
+                <p class="gameInfo_enemyHits">Gegnerische Treffer: 0/25</p>
+            </div>
+
+            <div class="section_myField">
+                <table id='fieldTableMy'></table>
+            </div>
+
+            <div class="section_enemyField">
+                <table id='fieldTableEnemy'></table>
+            </div>
+        </div>
+    </div>
+
+    <div id="winner">
+        <h1 id="winnerMsg"></h1>
+        <span id="btn_toLogin">Zurück zur Startseite</span>
+    </div>
+
+    <div class="section_info">
+        <span id="playerName"></span>
+        <p id ="gameInfo"></p>
+    </div>
+</body>
+</html>
