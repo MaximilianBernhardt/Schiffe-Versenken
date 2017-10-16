@@ -21,7 +21,10 @@ namespace Schiffe_Versenken
             return database.myConnection;
         }
 
-        //spieler meldet sich auf dem Server an
+        /// <summary>
+        /// Prüft ob Spieler vorhanden und fügt ihn ggf. ein.
+        /// </summary>
+        /// <param name="name">Name des Spielers</param>
         public void login(string name)
         {
             //Clients.Caller.receive("connecting");
@@ -51,7 +54,11 @@ namespace Schiffe_Versenken
             }
         }
 
-        //erstellt neues Spielfeld
+        /// <summary>
+        /// Erstellt ein neues Spielfeld
+        /// </summary>
+        /// <param name="size">Größe des Spielfelds</param>
+        /// <param name="playerID">Die ID des Spielers</param>
         public void createField(int size, int playerID)
         {
             using (getDbkConnection())
