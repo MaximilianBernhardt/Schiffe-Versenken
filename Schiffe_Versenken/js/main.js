@@ -33,7 +33,6 @@ $(document).ready(function () {
             }
         });
         $("#nextPage").click(function () {
-            //deleteField();
             generateField($("#fieldSize").val());
             fieldSet = true;
             SVHUB.server.createField(size, playerID);

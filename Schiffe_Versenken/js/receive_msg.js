@@ -101,7 +101,7 @@ function controlMsg() {
 	}
 
 	if (typeof log[0] !== 'undefined' && log[0] === "turn_f") {
-		$(".section_info").html("Dein Gegner ist dran!");
+		$(".section_info").html(enemyName + " ist dran!");
 		$(".coordinate").css({"background-color": "rgba(19, 119, 145,0.2)"});
 		$("#fieldTableEnemy").css({"border-style": "solid", "border-color": "red"});
 		$(".section_myField").css({"border-style": "solid", "border-color": "green"});
