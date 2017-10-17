@@ -11,7 +11,7 @@ var size = 0;
 var enemyName;
 var matchID;
 
-var correntLogNumber = 0;
+var currentLogNumber = 0;
 
 var checkFieldContent;
 var checkReadyBtn = false;
@@ -35,20 +35,21 @@ var col;
 var row;
 var counterHit = 0;
 
-var battleship = 1;
-var cruiser = 1;
-var destroyer = 2;
-var submarine = 3;
-var dinghy = 4;
-
-var isHorizontal = false;
-
-var countBattleship = 0;
-var countCruiser = 0;
-var countDestroyer = 0;
-var countSubmarine = 0;
-var countDinghy = 0;
-
 var shipSize;
-var shipSelection = false;
-var shipClass;
+
+// var BATTLESHIP = 1;
+// var cruiser = 1;
+// var destroyer = 2;
+// var submarine = 3;
+// var dinghy = 4;
+
+// var isHorizontal = false;
+//
+// var countBattleship = 0;
+// var countCruiser = 0;
+// var countDestroyer = 0;
+// var countSubmarine = 0;
+// var countDinghy = 0;
+//
+// var shipSelection = false;
+// var shipClass;

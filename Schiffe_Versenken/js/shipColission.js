@@ -54,9 +54,9 @@ function shipColissionHorizontal(cellNb, shipEnd, row, shipClass) { //shipColiss
     }
 }
 
-function shipColissionVerticalNeg(fromRow, toRow, thisCellNb, shipClass, row) {
+function shipColissionVerticalNegative(fromRow, toRow, thisCellNb, shipClass, row) {
     var countReturn = 0;
-    for (var h = fromRow; h > fromRow-shipSize; h--) {
+    for (var h = fromRow; h > fromRow - shipSize; h--) {
 
         //if (h > 15) { h = 15; }
 
@@ -80,9 +80,9 @@ function shipColissionVerticalNeg(fromRow, toRow, thisCellNb, shipClass, row) {
     }
 }
 
-function shipColissionHorizontalNeg(cellNb, shipEnd, row, shipClass) {
+function shipColissionHorizontalNegative(cellNb, shipEnd, row, shipClass) {
     var countReturn = 0;
-    for (var h = cellNb; h > cellNb-shipSize; h--) {
+    for (var h = cellNb; h > cellNb - shipSize; h--) {
 
         //if (h > 15) { h = 15; }
 

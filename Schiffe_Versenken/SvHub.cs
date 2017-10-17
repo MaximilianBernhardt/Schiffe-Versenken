@@ -90,7 +90,13 @@ namespace Schiffe_Versenken
             }
         }
 
-        //überprüft die Existens eines Spieles
+        /// <summary>
+        /// Überprüft die Exsistens eines Spieles
+        /// </summary>
+        /// <param name="matchID">ID des Spieles</param>
+        /// <param name="playerID">ID des Spielers</param>
+        /// <param name="difficulty">Schwierigkeitsstufe</param>
+        /// <param name="size">Größe des Spielfeldes</param>
         public void getGame(int matchID, int playerID, string difficulty, int size)
         {
             using (getDbkConnection())
@@ -106,7 +112,12 @@ namespace Schiffe_Versenken
             }
         }
 
-        //ändert den Wert eines Spielfeldes
+        /// <summary>
+        /// Ändert den Zellenwert an der übergebenen Stelle auf 1 oder 3
+        /// </summary>
+        /// <param name="enemyName">Gegnerrischer Name</param>
+        /// <param name="column">Spalte</param>
+        /// <param name="row">Reihe</param>
         public void changeFieldValues(string enemyName, string column, int row)
         {
             using (getDbkConnection())
@@ -137,7 +148,12 @@ namespace Schiffe_Versenken
             }
         }
 
-        //setzt den Wet einer Zelle
+        /// <summary>
+        /// Ändert den Zellenwert auf 2
+        /// </summary>
+        /// <param name="playerID">ID des Spielers</param>
+        /// <param name="column">Spalte</param>
+        /// <param name="row">Reihe</param>
         public void setFieldValues(int playerID, string column, int row)
         {
             using (getDbkConnection())
@@ -146,7 +162,12 @@ namespace Schiffe_Versenken
             }
         }
 
-        //Gibt den Weret einer Zelle zurück
+        /// <summary>
+        /// Gibt den Wert einer Zelle zurück
+        /// </summary>
+        /// <param name="playerID">ID des Spielers</param>
+        /// <param name="column">Spalte</param>
+        /// <param name="row">Reihe</param>
         public void getFieldValue(int playerID, string column, int row)
         {
             using (getDbkConnection())

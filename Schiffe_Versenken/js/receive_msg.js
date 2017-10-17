@@ -8,19 +8,19 @@ function controlMsg() {
             $("#playerName").html(log[2]);
             $(".section_info").slideToggle("slow");
             log = [];
-            correntLogNumber = 0;
+            currentLogNumber = 0;
         }
     }
     if (typeof log[0] !== 'undefined' && log[0] === "false") {
         $("#errorMsg").html("Bitte Namen eingeben!");
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
     if (typeof log[0] !== 'undefined' && log[0].search("y") === 0) {
         matchID = parseInt(log[0].substring(1, 4));
         $("#conCode").html("Einladungs-Code: " + matchID);
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
     if (typeof log[0] !== 'undefined' && log[0] === "matchID_true") {
         $(".section_two").hide();
@@ -28,11 +28,11 @@ function controlMsg() {
         matchID = $("#matchID").val();
         $("#conCode").html("Lobby: " + matchID);
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
     if (typeof log[0] !== 'undefined' && log[0] === "matchID_false") {
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
 
     if (typeof log[0] !== 'undefined' && log[0].search("x") === 0 && typeof log[1] !== 'undefined' && log[1].search("x") === 0) {
@@ -46,7 +46,7 @@ function controlMsg() {
         }
         console.log(enemyName);
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
         enemyConnection = true;
         if (playerStarted === true) {
             $.connection.hub.start().done(function () {
@@ -62,7 +62,7 @@ function controlMsg() {
             $(".section_five").show();
         }
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
     if (typeof log[0] !== 'undefined' && log[0] === "startGame") {
         $(".section_info").html("Du bist dran!");
@@ -73,7 +73,7 @@ function controlMsg() {
         $(".section_myField").css({"border-style": "solid", "border-color": "red"});
         myTurn = true;
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
 
     if (typeof log[0] !== 'undefined' && log[0] === "turn_t") {
@@ -83,7 +83,7 @@ function controlMsg() {
         $(".section_myField").css({"border-style": "solid", "border-color": "red"});
         myTurn = true;
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
 
     if(typeof log[0] !== 'undefined' && log[0] === "hit"){
@@ -93,7 +93,7 @@ function controlMsg() {
 
         $(".gameInfo_myHits").html("Deine Treffer : " +countDestroyedShips+ "/25");
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
         if(countDestroyedShips===25) {
             $.connection.hub.start().done(function () {
                 SVHUB.server.setWinner(matchID, userName);
@@ -113,14 +113,14 @@ function controlMsg() {
         $(".section_myField").css({"border-style": "solid", "border-color": "green"});
         myTurn = false;
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
 
     if(typeof log[0] !== 'undefined' && log[0] === "failed"){
         console.log(markedFieldPoint);
         markedFieldPoint.addClass("failedwater");
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
     if(typeof log[0] !== 'undefined' && log[0].search("winner")===0){
         $("#winnerMsg").html("Der Gewinner ist "+log[0].substring(6));
@@ -128,13 +128,13 @@ function controlMsg() {
         $(".section_five").hide();
         $(".section_info").hide();
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
 
     if(typeof log[0] !== 'undefined'&& log[0].search("enemyHit_column")===0){
         col = log[0].substring(15);
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
     if(typeof log[0] !== 'undefined'&& log[0].search("enemyHit_row")===0){
         row = log[0].substring(12);
@@ -143,19 +143,19 @@ function controlMsg() {
         counterHit++;
         $(".gameInfo_enemyHits").html("Gegnerische Treffer: " +counterHit+ "/25");
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
     if(typeof log[0] !== 'undefined'&& log[0].search("enemyFailed_column")===0){
         col = log[0].substring(18);
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
     if(typeof log[0] !== 'undefined'&& log[0].search("enemyFailed_row")===0){
         row = log[0].substring(15);
         $("#fieldTableMy").children("#row"+row).children("#cell"+col).addClass("failed");
         console.log($("#fieldTableMy").children("#row"+row).children("#cell"+col).attr('class'));
         log = [];
-        correntLogNumber = 0;
+        currentLogNumber = 0;
     }
     if(typeof log[0] !== 'undefined' && log[0].search("matchID_DontExist")===0){
         $("#errorMatchID").html("Dieser Einladungscode existiert nicht!");

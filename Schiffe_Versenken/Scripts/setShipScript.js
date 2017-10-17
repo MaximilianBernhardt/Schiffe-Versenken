@@ -4,15 +4,8 @@ var shipClass;
 var tmpShipClass;
 var row;
 
-// var BATTLESHIP = 1;
-// var cruiser = 1;
-// var destroyer = 2;
-// var submarine = 3;
-// var dinghy = 4;
-
 var thisIsTurned = [false, false, false, false, false, false, false, false, false, false, false];
 var isTurned = false;
-var allowedTurn = false;
 
 var countBattleship = 0;
 var countCruiser = 0;
@@ -50,7 +43,6 @@ $(document).ready(function() {
             tmpShipClass = "destroyer" + (countDestroyer+1);
             isTurned = false;
         }
-        // shipSetEvents();
     });
     $(".btn_submarine").mousedown(function() {
         if (countSubmarine < 3) {
@@ -200,13 +192,6 @@ $(document).ready(function() {
         resetShipCounter();
     });
 
-    // $(document).on('mouseenter','.fieldPoint',function () {
-    //     if(shipSelection===true) {
-    //
-    //             $(".fieldPoint").removeClass(shipClass);
-    //         }
-    //
-    // });
     $(".ship_selection").mouseleave(function() {
         if (shipSelection === true) {
             $(".fieldPoint").removeClass(shipClass);
@@ -446,7 +431,7 @@ function setShipHorizontal(tmp, i) {
                 }
             }
             if (shipEnd >= 17) {
-                if(shipColissionHorizontalNeg(cellNb, shipEnd, row, shipClass)===true) {
+                if(shipColissionHorizontalNegative(cellNb, shipEnd, row, shipClass)===true) {
                     $(".fieldPoint").removeClass(shipClass);
                     thisIsTurned[i] = false;
                     for (var i = cellNb; i > cellNb - shipSize; i--) {
@@ -470,7 +455,7 @@ function setShipHorizontal(tmp, i) {
                 }
             }
             if (shipEnd >= 17) {
-                if(shipColissionVerticalNeg(rowNb, shipEnd, cellNb, shipClass, row)===true) {
+                if(shipColissionVerticalNegative(rowNb, shipEnd, cellNb, shipClass, row)===true) {
                     $(".fieldPoint").removeClass(shipClass);
                     thisIsTurned[i]=true;
                     for (var i = rowNb; i > rowNb - shipSize; i--) {
@@ -495,7 +480,7 @@ function setShipHorizontal(tmp, i) {
         console.log("Übergebe ich: " + value[1]);
     });
     isTurned = thisIsTurned[i];
-    }
+}
 
 
 function setShipVertical(tmp, i){
@@ -525,7 +510,7 @@ function setShipVertical(tmp, i){
                 }
             }
             if (shipEnd > 16) {
-                if (shipColissionHorizontalNeg(cellNb, shipEnd, row, shipClass) === true) {
+                if (shipColissionHorizontalNegative(cellNb, shipEnd, row, shipClass) === true) {
                     $(".fieldPoint").removeClass(shipClass);
                     for (var i = cellNb; i > cellNb - shipSize; i--) {
                         // row = $(this).parent();
@@ -581,7 +566,7 @@ function setShipVertical(tmp, i){
                     }
                 }
             }else{
-                if (shipColissionVerticalNeg(shipCellsToSet[0], shipEnd, thisCellNb, shipClass, row) === true){
+                if (shipColissionVerticalNegative(shipCellsToSet[0], shipEnd, thisCellNb, shipClass, row) === true){
                     $(".fieldPoint").removeClass(shipClass);
 
                     for (var j = 0; j < counterShipCellsToSet; j++) {

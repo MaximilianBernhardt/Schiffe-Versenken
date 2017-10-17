@@ -16,9 +16,9 @@ $(document).ready(function () {
     });
 
     SVHUB.client.receive = function (message) {
-        log[correntLogNumber] = message;
-        console.log(log[correntLogNumber]);
-        correntLogNumber++;
+        log[currentLogNumber] = message;
+        console.log(log[currentLogNumber]);
+        currentLogNumber++;
         controlMsg();
     };
 
