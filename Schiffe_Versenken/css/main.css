@@ -268,7 +268,12 @@ h2{
     width: 332px;
 }
 
-.coordinate:hover{
+/*.coordinate:hover{*/
+    /*background-image: url("bombe.jpg");*/
+    /*background-size: 40px 40px;*/
+/*}*/
+
+.coordinateEvent{
     background-image: url("bombe.jpg");
     background-size: 40px 40px;
 }
