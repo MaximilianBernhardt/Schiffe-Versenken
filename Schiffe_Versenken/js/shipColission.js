@@ -6,11 +6,11 @@
 /**
  * Diese Funktion überprüft die Verticale Colission eines Schiffes vor dem Setzen
  *
- * @param {int} fromRow
- * @param {int} toRow
- * @param {int} thisCellNb
+ * @param {Int32Array} fromRow
+ * @param {Int32Array} toRow
+ * @param {Int32Array} thisCellNb
  * @param {String} shipClass
- * @param {int} row
+ * @param {Int32Array} row
  */
 function shipCollisionVertical(fromRow, toRow, thisCellNb, shipClass, row) {
 	var countReturn = 0;
@@ -44,9 +44,9 @@ function shipCollisionVertical(fromRow, toRow, thisCellNb, shipClass, row) {
 /**
  *  Diese Funktion überprüft die Horizontale Colission eines Schiffes vor dem Setzen
  *
- * @param {int} cellNb
- * @param {int} shipEnd
- * @param {int} row
+ * @param {Int32Array} cellNb
+ * @param {Int32Array} shipEnd
+ * @param {Int32Array} row
  * @param {String} shipClass
  */
 function shipCollisionHorizontal(cellNb, shipEnd, row, shipClass) { 
@@ -78,11 +78,11 @@ function shipCollisionHorizontal(cellNb, shipEnd, row, shipClass) {
 /**
  *  Diese Funktion überprüft die Verticale Colission eines Schiffes vor dem Setzen in negativer Richtung (an den Rändern des Spielfeldes)
  *
- * @param {int} fromRow
- * @param {int} toRow
- * @param {int} thisCellNb
+ * @param {Int32Array} fromRow
+ * @param {Int32Array} toRow
+ * @param {Int32Array} thisCellNb
  * @param {String} shipClass
- * @param {int} row
+ * @param {Int32Array} row
  */
 function shipCollisionVerticalNegative(fromRow, toRow, thisCellNb, shipClass, row) {
 	var countReturn = 0;
@@ -113,9 +113,9 @@ function shipCollisionVerticalNegative(fromRow, toRow, thisCellNb, shipClass, ro
 /**
  *  Diese Funktion überprüft die Horizontale Colission eines Schiffes vor dem Setzen in negativer Richtung (an den Rändern des Spielfeldes)
  *
- * @param {int} cellNb
- * @param {int} shipEnd
- * @param {int} row
+ * @param {Int32Array} cellNb
+ * @param {Int32Array} shipEnd
+ * @param {Int32Array} row
  * @param {String} shipClass
  */
 function shipCollisionHorizontalNegative(cellNb, shipEnd, row, shipClass) {

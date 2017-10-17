@@ -408,8 +408,8 @@ function resetShipCounter() {
 /**
  * Dreht das Schiff horizontal
  *
- * @param {*} tmp
- * @param {int} i
+ * @param {Object} tmp
+ * @param {Int32Array} i
  */
 function setShipHorizontal(tmp, i) {
 
@@ -489,7 +489,7 @@ function setShipHorizontal(tmp, i) {
 /**
  * Dreht das Schiff vertical
  *
- * @param {*} tmp
+ * @param {Object} tmp
  * @param {int} i
  */
 function setShipVertical(tmp, i) {
