@@ -1,5 +1,5 @@
 // Vertical = von unten nach oben
-function shipColissionVertical(fromRow, toRow, thisCellNb, shipClass, row) {
+function shipCollisionVertical(fromRow, toRow, thisCellNb, shipClass, row) {
     var countReturn = 0;
     for (var h = fromRow; h < toRow; h++) {
 
@@ -28,7 +28,7 @@ function shipColissionVertical(fromRow, toRow, thisCellNb, shipClass, row) {
 }
 
 // Horizontal = von links nach Rechts
-function shipColissionHorizontal(cellNb, shipEnd, row, shipClass) { //shipColission auf shipColissionVertical umbenennen
+function shipCollisionHorizontal(cellNb, shipEnd, row, shipClass) { //shipColission auf shipColissionVertical umbenennen
     var countReturn = 0;
     for (var h = cellNb; h < shipEnd; h++) {
 
@@ -54,7 +54,7 @@ function shipColissionHorizontal(cellNb, shipEnd, row, shipClass) { //shipColiss
     }
 }
 
-function shipColissionVerticalNegative(fromRow, toRow, thisCellNb, shipClass, row) {
+function shipCollisionVerticalNegative(fromRow, toRow, thisCellNb, shipClass, row) {
     var countReturn = 0;
     for (var h = fromRow; h > fromRow - shipSize; h--) {
 
@@ -80,7 +80,7 @@ function shipColissionVerticalNegative(fromRow, toRow, thisCellNb, shipClass, ro
     }
 }
 
-function shipColissionHorizontalNegative(cellNb, shipEnd, row, shipClass) {
+function shipCollisionHorizontalNegative(cellNb, shipEnd, row, shipClass) {
     var countReturn = 0;
     for (var h = cellNb; h > cellNb - shipSize; h--) {
 

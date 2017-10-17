@@ -420,7 +420,7 @@ function setShipHorizontal(tmp, i) {
 
     if (isTurned===false) {
             if (shipEnd < 17) {
-                if(shipColissionHorizontal(cellNb, shipEnd, row, shipClass)===true) {
+                if(shipCollisionHorizontal(cellNb, shipEnd, row, shipClass)===true) {
                     $(".fieldPoint").removeClass(shipClass);
                     thisIsTurned[i] = false;
                     for (var i = cellNb; i < shipEnd; i++) {
@@ -431,7 +431,7 @@ function setShipHorizontal(tmp, i) {
                 }
             }
             if (shipEnd >= 17) {
-                if(shipColissionHorizontalNegative(cellNb, shipEnd, row, shipClass)===true) {
+                if(shipCollisionHorizontalNegative(cellNb, shipEnd, row, shipClass)===true) {
                     $(".fieldPoint").removeClass(shipClass);
                     thisIsTurned[i] = false;
                     for (var i = cellNb; i > cellNb - shipSize; i--) {
@@ -444,7 +444,7 @@ function setShipHorizontal(tmp, i) {
     } else {
         shipEnd = rowNb + shipSize;
             if (shipEnd < 17) {
-                if(shipColissionVertical(rowNb, shipEnd, cellNb, shipClass, row)===true) {
+                if(shipCollisionVertical(rowNb, shipEnd, cellNb, shipClass, row)===true) {
                     $(".fieldPoint").removeClass(shipClass);
                     thisIsTurned[i]=true;
                     for (var i = rowNb; i < shipEnd; i++) {
@@ -455,7 +455,7 @@ function setShipHorizontal(tmp, i) {
                 }
             }
             if (shipEnd >= 17) {
-                if(shipColissionVerticalNegative(rowNb, shipEnd, cellNb, shipClass, row)===true) {
+                if(shipCollisionVerticalNegative(rowNb, shipEnd, cellNb, shipClass, row)===true) {
                     $(".fieldPoint").removeClass(shipClass);
                     thisIsTurned[i]=true;
                     for (var i = rowNb; i > rowNb - shipSize; i--) {
@@ -474,10 +474,6 @@ function setShipHorizontal(tmp, i) {
         shipCellsToSet[0] = value[0];
         thisCellNb = value[1];
         $(cell).addClass(shipClass);
-
-
-        console.log(value);
-        console.log("Übergebe ich: " + value[1]);
     });
     isTurned = thisIsTurned[i];
 }
@@ -497,11 +493,9 @@ function setShipVertical(tmp, i){
     var checkCase;
     if (isTurned === false) {
         if (shipSelection === true) {
-
             shipEnd = cellNb + shipSize;
-
             if (shipEnd <= 16) {
-                if (shipColissionHorizontal(cellNb, shipEnd, row, shipClass) === true) {
+                if (shipCollisionHorizontal(cellNb, shipEnd, row, shipClass) === true) {
                     $(".fieldPoint").removeClass(shipClass);
                     for (var i = cellNb; i < shipEnd; i++) {
                         //row = $(this).parent();
@@ -510,7 +504,7 @@ function setShipVertical(tmp, i){
                 }
             }
             if (shipEnd > 16) {
-                if (shipColissionHorizontalNegative(cellNb, shipEnd, row, shipClass) === true) {
+                if (shipCollisionHorizontalNegative(cellNb, shipEnd, row, shipClass) === true) {
                     $(".fieldPoint").removeClass(shipClass);
                     for (var i = cellNb; i > cellNb - shipSize; i--) {
                         // row = $(this).parent();
@@ -523,17 +517,12 @@ function setShipVertical(tmp, i){
 
     } else {
         if (shipSelection === true) {
-
             shipEnd = rowNb + shipSize;
-
-            //$(".fieldPoint").removeClass(shipClass);
-
             if (shipEnd < 17) {
                 checkCase = true;
                 for (var i = rowNb; i < shipEnd; i++) {
                     shipCells.push([i, cellNb]);
                 }
-
             }
             if (shipEnd >= 17) {
                 checkCase = false;
@@ -544,21 +533,14 @@ function setShipVertical(tmp, i){
             $.each(shipCells, function (index, value) {
                 var parentRow = $("#row" + value[0]);
                 cell[counterShipCellsToSet] = $(parentRow).children("#cell" + value[1]);
-                console.log(value);
-                console.log("Übergebe ich: " + value[1]);
-
                 thisCellNb = value[1];
-
                 shipCellsToSet[counterShipCellsToSet] = value[0];
                 counterShipCellsToSet = counterShipCellsToSet + 1;
 
                 console.log(shipCellsToSet);
-
-                //     $(cell).addClass(shipClass);
-
             });
             if (checkCase === true) {
-                if (shipColissionVertical(shipCellsToSet[0], shipEnd, thisCellNb, shipClass, row) === true) {
+                if (shipCollisionVertical(shipCellsToSet[0], shipEnd, thisCellNb, shipClass, row) === true) {
                     $(".fieldPoint").removeClass(shipClass);
 
                     for (var j = 0; j < counterShipCellsToSet; j++) {
@@ -566,7 +548,7 @@ function setShipVertical(tmp, i){
                     }
                 }
             }else{
-                if (shipColissionVerticalNegative(shipCellsToSet[0], shipEnd, thisCellNb, shipClass, row) === true){
+                if (shipCollisionVerticalNegative(shipCellsToSet[0], shipEnd, thisCellNb, shipClass, row) === true){
                     $(".fieldPoint").removeClass(shipClass);
 
                     for (var j = 0; j < counterShipCellsToSet; j++) {
@@ -581,17 +563,14 @@ function setShipVertical(tmp, i){
 function setCountShip(ship) {
     var checkFieldContent;
     var counter = 0;
-    console.log("Schiffsname "+ship);
     for(var i = 1; i<=15;i++){
         for(var j = 1; j<=15;j++){
             checkFieldContent = $(".section_myField_create").children("#fieldTable").children("#row"+i).children("#cell"+j).prop("className").substring(11);
-            console.log("Schiffsklasse: "+checkFieldContent);
             if(checkFieldContent===ship){
                 counter++;
             }
         }
     }
-    console.log(counter+" "+shipSize);
     if(counter===shipSize){
         return true;
     } else{

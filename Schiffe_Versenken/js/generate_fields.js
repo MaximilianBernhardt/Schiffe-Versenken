@@ -3,8 +3,8 @@ function generateEnemyField(size) {
     var rowID;
     var cell;
     var cellID;
-
     size++;
+
     for (var i = 1; i < size; i++) {
         row=$("<tr></tr>");
         rowID="row"+i;
@@ -27,8 +27,8 @@ function generateMyField(size) {
     var rowID;
     var cell;
     var cellID;
-
     size++;
+
     $.connection.hub.start().done(function () {
         for (var i = 1; i < size; i++) {
             row = $("<tr></tr>");
@@ -64,8 +64,8 @@ function generateField(size) {
     var rowID;
     var cell;
     var cellID;
-
     size++;
+
     $(".section_myField, .section_myField_create").append("<table id='fieldTable'></table>");
     for (var i = 1; i < size; i++) {
         row=$("<tr></tr>");

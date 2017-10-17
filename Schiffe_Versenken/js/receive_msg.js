@@ -66,9 +66,7 @@ function controlMsg() {
     }
     if (typeof log[0] !== 'undefined' && log[0] === "startGame") {
         $(".section_info").html("Du bist dran!");
-        // Hier wird gebastelt
         $(".coordinate").css({"background-color": "#137791"});
-        // ende vom basteln
         $("#fieldTableEnemy").css({"border-style": "solid", "border-color": "green"});
         $(".section_myField").css({"border-style": "solid", "border-color": "red"});
         myTurn = true;
@@ -98,17 +96,13 @@ function controlMsg() {
             $.connection.hub.start().done(function () {
                 SVHUB.server.setWinner(matchID, userName);
                 SVHUB.server.removeField(15);
-                // $(".section_five").hide();
-                // $("#winner").show();
             });
         }
     }
 
     if (typeof log[0] !== 'undefined' && log[0] === "turn_f") {
         $(".section_info").html("Dein Gegner ist dran!");
-        // Hier wird gebastelt
         $(".coordinate").css({"background-color": "rgba(19, 119, 145,0.2)"});
-        // ende vom basteln
         $("#fieldTableEnemy").css({"border-style": "solid", "border-color": "red"});
         $(".section_myField").css({"border-style": "solid", "border-color": "green"});
         myTurn = false;
@@ -117,7 +111,6 @@ function controlMsg() {
     }
 
     if(typeof log[0] !== 'undefined' && log[0] === "failed"){
-        console.log(markedFieldPoint);
         markedFieldPoint.addClass("failedwater");
         log = [];
         currentLogNumber = 0;

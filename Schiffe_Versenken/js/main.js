@@ -17,7 +17,6 @@ $(document).ready(function () {
 
     SVHUB.client.receive = function (message) {
         log[currentLogNumber] = message;
-        console.log(log[currentLogNumber]);
         currentLogNumber++;
         controlMsg();
     };
@@ -50,10 +49,9 @@ $(document).ready(function () {
             }
         });
         $("#btn_startgame").click(function () {
+            var shipCounter = 0;
             generateEnemyField(15);
             generateMyField(15);
-            var shipCounter = 0;
-            console.log("-----------------Checkt gesetzte Schiffe und speichert auf Datenbank---------------------");
             for(var i = 1; i <= 15; i++){
                 shipSettings.push([]);
                 if(i===1){
@@ -70,15 +68,8 @@ $(document).ready(function () {
                         shipCounter++;
                         shipSettings[i].push(checkFieldContent);
                         SVHUB.server.setFieldValues(playerID, "c"+j, i);
-
-                        if(j===15) {
-                            console.log(shipSettings[i]);
-                        }
                     }else{
                         shipSettings[i].push("none");
-                        if(j===15){
-                            console.log(shipSettings[i]);
-                        }
                     }
                 }
             }
@@ -93,23 +84,16 @@ $(document).ready(function () {
             }else{
                 $("#errorShips").html("Setze alle Schiffe");
             }
-
-            console.log("---------------------Ende--------------------------");
             if(enemyConnection === true && checkEnemyReadyBtn === true && checkReadyBtn === true) {
                 $(".section_four").hide();
                 $(".section_five").show();
                 $(".section_info").html("Dein Gegner ist dran!");
-                // Hier wird gebastelt
                 $(".coordinate").css({"background-color": "rgba(19, 119, 145, 0.5)"});
-                // ende vom basteln
                 $("#fieldTableEnemy").css({"border-style": "solid", "border-color": "red"});
                 $(".section_myField").css({"border-style": "solid", "border-color": "green"});
                 SVHUB.server.startGame();
             }
         });
-
-
-        //Spielablauf!
 
         $(document).on('click','.coordinate',function () {
             var cellNb;
@@ -122,8 +106,5 @@ $(document).ready(function () {
                 SVHUB.server.changeFieldValues(enemyName,cellNb,rowNb);
             }
         });
-
-
-
     });
 });
