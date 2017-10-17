@@ -14,14 +14,14 @@
  */
 function shipCollisionVertical(fromRow, toRow, thisCellNb, shipClass, row) {
 	var countReturn = 0;
+	var currentShipPoint = "";
+
 	for (var h = fromRow; h < toRow; h++) {
 
 		if (h > 15) {
 			h = 15;
 		}
-
-		var currentShipPoint = row.parent().children("#row" + h).children("#cell" + thisCellNb).prop('className').substring(11);
-		console.log(currentShipPoint);
+		currentShipPoint = row.parent().children("#row" + h).children("#cell" + thisCellNb).prop('className').substring(11);
 
 		if (currentShipPoint !== shipClass && currentShipPoint === "battleship" || currentShipPoint !== shipClass && currentShipPoint === "cruiser" || currentShipPoint !==
 			shipClass && currentShipPoint === "destroyer1" || currentShipPoint !== shipClass && currentShipPoint === "destroyer2" || currentShipPoint !==
@@ -49,16 +49,16 @@ function shipCollisionVertical(fromRow, toRow, thisCellNb, shipClass, row) {
  * @param {Int32Array} row
  * @param {String} shipClass
  */
-function shipCollisionHorizontal(cellNb, shipEnd, row, shipClass) { 
+function shipCollisionHorizontal(cellNb, shipEnd, row, shipClass) {
 	var countReturn = 0;
+	var currentShipPoint="";
 	for (var h = cellNb; h < shipEnd; h++) {
 
 		if (h > 15) {
 			h = 15;
 		}
 
-		var currentShipPoint = row.children("#cell" + h).prop('className').substring(11);
-		console.log(currentShipPoint);
+		currentShipPoint = row.children("#cell" + h).prop('className').substring(11);
 		if (currentShipPoint !== shipClass && currentShipPoint === "battleship" || currentShipPoint !== shipClass && currentShipPoint === "cruiser" || currentShipPoint !==
 			shipClass && currentShipPoint === "destroyer1" || currentShipPoint !== shipClass && currentShipPoint === "destroyer2" || currentShipPoint !==
 			shipClass && currentShipPoint === "submarine1" || currentShipPoint !== shipClass && currentShipPoint === "submarine2" || currentShipPoint !==
@@ -86,13 +86,10 @@ function shipCollisionHorizontal(cellNb, shipEnd, row, shipClass) {
  */
 function shipCollisionVerticalNegative(fromRow, toRow, thisCellNb, shipClass, row) {
 	var countReturn = 0;
+	var currentShipPoint = "";
+
 	for (var h = fromRow; h > fromRow - shipSize; h--) {
-
-		//if (h > 15) { h = 15; }
-
-		var currentShipPoint = row.parent().children("#row" + h).children("#cell" + thisCellNb).prop('className').substring(11);
-		console.log(currentShipPoint);
-
+		currentShipPoint = row.parent().children("#row" + h).children("#cell" + thisCellNb).prop('className').substring(11);
 		if (currentShipPoint !== shipClass && currentShipPoint === "battleship" || currentShipPoint !== shipClass && currentShipPoint === "cruiser" || currentShipPoint !==
 			shipClass && currentShipPoint === "destroyer1" || currentShipPoint !== shipClass && currentShipPoint === "destroyer2" || currentShipPoint !==
 			shipClass && currentShipPoint === "submarine1" || currentShipPoint !== shipClass && currentShipPoint === "submarine2" || currentShipPoint !==
@@ -120,12 +117,10 @@ function shipCollisionVerticalNegative(fromRow, toRow, thisCellNb, shipClass, ro
  */
 function shipCollisionHorizontalNegative(cellNb, shipEnd, row, shipClass) {
 	var countReturn = 0;
+	var currentShipPoint = "";
+
 	for (var h = cellNb; h > cellNb - shipSize; h--) {
-
-		//if (h > 15) { h = 15; }
-
-		var currentShipPoint = row.children("#cell" + h).prop('className').substring(11);
-		console.log(currentShipPoint);
+		currentShipPoint = row.children("#cell" + h).prop('className').substring(11);
 		if (currentShipPoint !== shipClass && currentShipPoint === "battleship" || currentShipPoint !== shipClass && currentShipPoint === "cruiser" || currentShipPoint !==
 			shipClass && currentShipPoint === "destroyer1" || currentShipPoint !== shipClass && currentShipPoint === "destroyer2" || currentShipPoint !==
 			shipClass && currentShipPoint === "submarine1" || currentShipPoint !== shipClass && currentShipPoint === "submarine2" || currentShipPoint !==

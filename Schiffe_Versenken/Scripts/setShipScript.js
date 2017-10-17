@@ -172,17 +172,7 @@ $(document).ready(function() {
 	});
 
 	$("#btn_back").click(function() {
-		$(".fieldPoint").removeClass("battleship");
-		$(".fieldPoint").removeClass("cruiser");
-		$(".fieldPoint").removeClass("destroyer1");
-		$(".fieldPoint").removeClass("destroyer2");
-		$(".fieldPoint").removeClass("submarine1");
-		$(".fieldPoint").removeClass("submarine2");
-		$(".fieldPoint").removeClass("submarine3");
-		$(".fieldPoint").removeClass("dinghy1");
-		$(".fieldPoint").removeClass("dinghy2");
-		$(".fieldPoint").removeClass("dinghy3");
-		$(".fieldPoint").removeClass("dinghy4");
+		$(".fieldPoint").removeClass("battleship cruiser destroyer1 destroyer2 submarine1 submarine2 submarine3 dinghy1 dinghy2 dinghy3 dinghy4");
 		isTurned = false;
 		countSubmarine = 0;
 		countDinghy = 0;
