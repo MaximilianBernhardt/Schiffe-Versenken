@@ -5,7 +5,7 @@
 /**
  * Diese Funktion generiert das GEGNERISCHE Spielfeld anahnd des übergebenen Wertes
  *
- * @param {int} size
+ * @param {Number} size
  */
 function generateEnemyField(size) {
 	var row;
@@ -34,7 +34,7 @@ function generateEnemyField(size) {
 /**
  * Diese Funktion generiert das EIGENE Spielfeld anahnd des übergebenen Wertes
  *
- * @param {int} size
+ * @param {Number} size
  */
 function generateMyField(size) {
 	var row;
@@ -100,8 +100,4 @@ function generateField(size) {
 		}
 	}
 	this.size = size;
-}
-
-function deleteField() {
-	$("#fieldTable").remove();
 }

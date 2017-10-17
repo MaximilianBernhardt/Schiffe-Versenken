@@ -42,15 +42,15 @@ $(document).ready(function() {
 		$("#nextPage").click(function() {
 			generateField($("#fieldSize").val());
 			fieldSet = true;
-			SVHUB.server.createField(size, playerID);
+			SVHUB.server.createField(size, playerId);
 			$(".section_myField_create").show();
 			if ($("#matchID").val() === "") {
-				SVHUB.server.createGame($("#difficulty").val(), playerID, size);
+				SVHUB.server.createGame($("#difficulty").val(), playerId, size);
 				$(".section_two").hide();
 				$(".section_three").show();
 				$("#playerName").html(userName + ", setzte deine Schiffe!");
 			} else {
-				SVHUB.server.getGame(parseInt($("#matchID").val()), playerID, $("#difficulty").val(), size);
+				SVHUB.server.getGame(parseInt($("#matchID").val()), playerId, $("#difficulty").val(), size);
 				SVHUB.server.getPlayerNameFromMatch(parseInt($("#matchID").val()));
 			}
 		});
@@ -72,7 +72,7 @@ $(document).ready(function() {
 						checkFieldContent === "dinghy3" || checkFieldContent === "dinghy4") {
 						shipCounter++;
 						shipSettings[i].push(checkFieldContent);
-						SVHUB.server.setFieldValues(playerID, "c" + j, i);
+						SVHUB.server.setFieldValues(playerId, "c" + j, i);
 					} else {
 						shipSettings[i].push("none");
 					}

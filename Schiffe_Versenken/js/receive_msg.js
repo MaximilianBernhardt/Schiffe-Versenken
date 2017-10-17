@@ -4,7 +4,7 @@ function controlMsg() {
 		$(".section_one").hide();
 		$(".section_two").show();
 		if (typeof log[2] !== 'undefined') {
-			playerID = parseInt(log[1]);
+			playerId = parseInt(log[1]);
 			$("#playerName").html(log[2]);
 			$(".section_info").slideToggle("slow");
 			log = [];

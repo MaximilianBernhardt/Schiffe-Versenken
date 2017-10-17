@@ -3,7 +3,7 @@ var log = [];
 var SVHUB = $.connection.svHub;
 
 var userName;
-var playerID;
+var playerId;
 
 var fieldSet = false;
 var size = 0;
@@ -27,8 +27,6 @@ var markedFieldPoint;
 
 var countDestroyedShips = 0;
 
-var isCellEmpty = true;
-
 var shipSettings = [];
 
 var col;
@@ -37,19 +35,17 @@ var counterHit = 0;
 
 var shipSize;
 
-// var BATTLESHIP = 1;
-// var cruiser = 1;
-// var destroyer = 2;
-// var submarine = 3;
-// var dinghy = 4;
 
-// var isHorizontal = false;
-//
-// var countBattleship = 0;
-// var countCruiser = 0;
-// var countDestroyer = 0;
-// var countSubmarine = 0;
-// var countDinghy = 0;
-//
-// var shipSelection = false;
-// var shipClass;
+
+var countBattleship = 0;
+var countCruiser = 0;
+var countDestroyer = 0;
+var countSubmarine = 0;
+var countDinghy = 0;
+
+var shipSelection = false;
+var shipClass;
+
+var thisIsTurned = [false, false, false, false, false, false, false, false, false, false, false];
+var isTurned = false;
+
