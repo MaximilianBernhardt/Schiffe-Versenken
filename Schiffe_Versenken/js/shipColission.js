@@ -1,4 +1,18 @@
+/**
+ * Diese Funktionen überprüfen beim Drehen der Schiffe, ob eine Kolission mit einem anden Schiff vorliegt.
+ */
+
+
 // Vertical = von unten nach oben
+/**
+ * Diese Funktion überprüft die Verticale Colission eines Schiffes vor dem Setzen
+ * 
+ * @param {int} fromRow 
+ * @param {int} toRow 
+ * @param {int} thisCellNb 
+ * @param {String} shipClass 
+ * @param {int} row 
+ */
 function shipColissionVertical(fromRow, toRow, thisCellNb, shipClass, row) {
     var countReturn = 0;
     for (var h = fromRow; h < toRow; h++) {
@@ -28,6 +42,14 @@ function shipColissionVertical(fromRow, toRow, thisCellNb, shipClass, row) {
 }
 
 // Horizontal = von links nach Rechts
+/**
+ *  Diese Funktion überprüft die Horizontale Colission eines Schiffes vor dem Setzen
+ * 
+ * @param {int} cellNb 
+ * @param {int} shipEnd 
+ * @param {int} row 
+ * @param {String} shipClass 
+ */
 function shipColissionHorizontal(cellNb, shipEnd, row, shipClass) { //shipColission auf shipColissionVertical umbenennen
     var countReturn = 0;
     for (var h = cellNb; h < shipEnd; h++) {
@@ -54,6 +76,15 @@ function shipColissionHorizontal(cellNb, shipEnd, row, shipClass) { //shipColiss
     }
 }
 
+/**
+ *  Diese Funktion überprüft die Verticale Colission eines Schiffes vor dem Setzen in negativer Richtung (an den Rändern des Spielfeldes)
+ * 
+ * @param {int} fromRow 
+ * @param {int} toRow 
+ * @param {int} thisCellNb 
+ * @param {String} shipClass 
+ * @param {int} row 
+ */
 function shipColissionVerticalNegative(fromRow, toRow, thisCellNb, shipClass, row) {
     var countReturn = 0;
     for (var h = fromRow; h > fromRow - shipSize; h--) {
@@ -80,6 +111,14 @@ function shipColissionVerticalNegative(fromRow, toRow, thisCellNb, shipClass, ro
     }
 }
 
+/**
+ *  Diese Funktion überprüft die Horizontale Colission eines Schiffes vor dem Setzen in negativer Richtung (an den Rändern des Spielfeldes)
+ * 
+ * @param {int} cellNb 
+ * @param {int} shipEnd 
+ * @param {int} row 
+ * @param {String} shipClass 
+ */
 function shipColissionHorizontalNegative(cellNb, shipEnd, row, shipClass) {
     var countReturn = 0;
     for (var h = cellNb; h > cellNb - shipSize; h--) {

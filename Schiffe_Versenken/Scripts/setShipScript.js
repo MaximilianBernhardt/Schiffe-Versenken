@@ -395,6 +395,9 @@ $(document).ready(function() {
     });
 });
 
+/**
+ * Setzt die Zähler-Anzeige der noch übrigen, zu setzenden Schiffe zurück
+ */
 function resetShipCounter() {
     $(".battleshipCounter").html(1 - countBattleship + "x");
     $(".cruiserCounter").html(1 - countCruiser + "x");
@@ -403,6 +406,12 @@ function resetShipCounter() {
     $(".dinghyCounter").html(4 - countDinghy  + "x");
 }
 
+/**
+ * Dreht das Schiff horizontal
+ * 
+ * @param {*} tmp 
+ * @param {int} i 
+ */
 function setShipHorizontal(tmp, i) {
 
     var cellName = tmp.prop('id');
@@ -482,7 +491,12 @@ function setShipHorizontal(tmp, i) {
     isTurned = thisIsTurned[i];
 }
 
-
+/**
+ * Dreht das Schiff vertical
+ * 
+ * @param {*} tmp 
+ * @param {int} i 
+ */
 function setShipVertical(tmp, i){
     var cellName = tmp.prop('id');
     var cellNb = parseInt(cellName.substring(4, 6));
@@ -578,6 +592,11 @@ function setShipVertical(tmp, i){
     }
 }
 
+/**
+ * Kontrolliert, ob das Schiff auf das Feld gesetzt wurde 
+ * 
+ * @param {String} ship 
+ */
 function setCountShip(ship) {
     var checkFieldContent;
     var counter = 0;

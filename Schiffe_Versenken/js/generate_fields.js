@@ -1,3 +1,12 @@
+/**
+ * Diese Funktionen generieren die Spielfelder 
+ */
+
+/**
+ * Diese Funktion generiert das GEGNERISCHE Spielfeld anahnd des übergebenen Wertes
+ * 
+ * @param {int} size 
+ */
 function generateEnemyField(size) {
     var row;
     var rowID;
@@ -22,6 +31,11 @@ function generateEnemyField(size) {
     this.size=size;
 }
 
+/**
+ * Diese Funktion generiert das EIGENE Spielfeld anahnd des übergebenen Wertes
+ * 
+ * @param {int} size 
+ */
 function generateMyField(size) {
     var row;
     var rowID;
@@ -59,6 +73,11 @@ function generateMyField(size) {
     this.size=size;
 }
 
+/**
+ * Diese Funktion generiert das Spielfeld zum Setzen der Schiffe anahnd des übergebenen Wertes
+ * 
+ * @param {int} size 
+ */
 function generateField(size) {
     var row;
     var rowID;
