@@ -2,7 +2,6 @@ $(document).ready(function() {
 
 	resetShipCounter();
 
-
 	$(".btn_battleship").mousedown(function() {
 		if (countBattleship < 1) {
 			shipSelection = true;
@@ -48,7 +47,6 @@ $(document).ready(function() {
 			isTurned = false;
 		}
 	});
-
 
 	$(document).on('mouseup', '#fieldTable', function() {
 		switch (tmpShipClass) {
@@ -154,7 +152,6 @@ $(document).ready(function() {
 		}
 	});
 
-
 	$(document).on('mousedown', '.battleship', function() {
 		shipSelection = true;
 		shipSize = 5;
@@ -223,11 +220,9 @@ $(document).ready(function() {
 		isTurned = thisIsTurned[10];
 	});
 
-
 	$(document).on('mouseenter', '.fieldPoint', function() {
 		setShipVertical($(this))
 	});
-
 
 	$(".section_three").mouseup(function() {
 		shipSelection = false;
@@ -252,7 +247,6 @@ $(document).ready(function() {
 	});
 
 });
-
 
 function resetShipCounter() {
 	$(".battleshipCounter").html(1 - countBattleship + "x");

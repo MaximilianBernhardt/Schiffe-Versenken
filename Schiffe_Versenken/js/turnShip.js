@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-	//==================================================================================================================
-
 	$(document).on('click', '.battleship', function() {
 		if (thisIsTurned[0] === false) {
 			thisIsTurned[0] = true;
@@ -126,8 +124,6 @@ $(document).ready(function() {
 
 });
 
-//======================================================================================================================
-
 /**
  * Dreht das Schiff horizontal
  *
@@ -209,8 +205,6 @@ function setShipHorizontal(scope, i) {
 	});
 	isTurned = thisIsTurned[i];
 }
-
-//======================================================================================================================
 
 /**
  * Dreht das Schiff vertical

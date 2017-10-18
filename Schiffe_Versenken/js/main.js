@@ -1,14 +1,6 @@
 $(document).ready(function() {
 
-	$(".section_two").hide();
-	$(".section_three").hide();
-	$(".section_myField").hide();
-	$(".section_myField_create").hide();
-	$(".section_enemyField").hide();
-	$(".section_info").hide();
-	$(".section_four").hide();
-	$(".section_five").hide();
-	$("#winner").hide();
+	$(".section_two, .section_three, .section_myField, .section_myField_create, .section_enemyField, .section_info, .section_four, .section_five, #winner").hide();
 
 	$("#btn_toLogin").click(function() {
 		location.reload();
@@ -30,12 +22,12 @@ $(document).ready(function() {
 
 	$.connection.hub.start().done(function() {
 		$("#submitName").click(function() {
-			userName = $("#userName").val();
+			userName = htmlEscape($("#userName").val());
 			SVHUB.server.login(userName);
 		});
 		$("#userName").keydown(function(e) {
 			if (e.which === 13) {
-				userName = $("#userName").val();
+				userName = htmlEscape($("#userName").val());
 				SVHUB.server.login(userName);
 			}
 		});
@@ -113,3 +105,12 @@ $(document).ready(function() {
 		});
 	});
 });
+
+function htmlEscape(str) {
+	return str
+		.replace(/&/g, '&amp;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#39;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;');
+}

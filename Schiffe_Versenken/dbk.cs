@@ -39,8 +39,10 @@ namespace Schiffe_Versenken
         {
             if (checkPlayer(name)==false)
             {
-            com.CommandText = "INSERT INTO player (name) VALUE ('" + name + "')";
-            com.ExecuteNonQuery();
+                com.CommandText = "INSERT INTO player (name) VALUE (@text)";
+                com.Prepare();
+                com.Parameters.AddWithValue("@text", name);
+                com.ExecuteNonQuery();
                 return true;
             }
             else
@@ -54,7 +56,9 @@ namespace Schiffe_Versenken
         public Boolean checkPlayer(string name)
         {
             string result ="Spieler nicht gefunden";
-            com.CommandText = "SELECT name FROM player WHERE name = '" + name + "'";
+            com.CommandText = "SELECT name FROM player WHERE name = @text2";
+            com.Prepare();
+            com.Parameters.AddWithValue("@text2", name);
             com.ExecuteNonQuery();
             MySqlDataReader reader = com.ExecuteReader();
             while(reader.Read())
