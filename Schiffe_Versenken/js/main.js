@@ -7,6 +7,12 @@ $(document).ready(function() {
 	});
 	$(".section_highscore").hide();
 	$(".highscore").hide();
+	$(".section_chat").hide();
+
+	$(".chatBtn").click(function() {
+		$(".section_chat").animate({width:'toggle'},250);
+	});
+
 	$(".highscoreBtn").click(function() {
 		$(".section_highscore").animate({width:'toggle'},350);
 		$(".highscore").toggle(350);
