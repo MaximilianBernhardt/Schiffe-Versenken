@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "checkJs":true
+  },
+  "files": [
+    "typings/node/node.d.ts",
+    "packages\\jQuery.1.6.4\\Content\\Scripts\\jquery-1.6.4-vsdoc.js",
+    "packages\\jQuery.1.6.4\\Content\\Scripts\\jquery-1.6.4.js",
+    "packages\\jQuery.1.6.4\\Content\\Scripts\\jquery-1.6.4.min.js",
+    "packages\\jQuery.1.6.4\\Tools\\jquery-1.6.4-vsdoc-para.js",
+    "packages\\Microsoft.AspNet.SignalR.JS.2.2.2\\content\\Scripts\\jquery.signalR-2.2.2.js",
+    "packages\\Microsoft.AspNet.SignalR.JS.2.2.2\\content\\Scripts\\jquery.signalR-2.2.2.min.js",
+    "Schiffe_Versenken\\js\\dd_shipPosition.js",
+    "Schiffe_Versenken\\js\\generate_fields.js",
+    "Schiffe_Versenken\\js\\globals.js",
+    "Schiffe_Versenken\\js\\main.js",
+    "Schiffe_Versenken\\js\\receive_msg.js",
+    "Schiffe_Versenken\\js\\shipColission.js",
+    "Schiffe_Versenken\\js\\turnShip.js",
+    "Schiffe_Versenken\\Scripts\\jquery-1.6.4-vsdoc.js",
+    "Schiffe_Versenken\\Scripts\\jquery-1.6.4.js",
+    "Schiffe_Versenken\\Scripts\\jquery-1.6.4.min.js",
+    "Schiffe_Versenken\\Scripts\\jquery-3.2.1.min.js",
+    "Schiffe_Versenken\\Scripts\\jquery.signalR-2.2.2.js",
+    "Schiffe_Versenken\\Scripts\\jquery.signalR-2.2.2.min.js"
+  ]
+}
