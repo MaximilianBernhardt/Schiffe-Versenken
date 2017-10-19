@@ -210,7 +210,7 @@ function setShipHorizontal(scope, i) {
  * Dreht das Schiff vertical
  *
  * @param {Object} scope
- * @param {int} i
+ * @param {Int32Array} i
  */
 function setShipVertical(scope, i) {
 	var cellName = scope.prop('id');
