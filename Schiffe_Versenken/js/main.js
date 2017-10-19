@@ -8,10 +8,7 @@ $(document).ready(function() {
 	$(".section_highscore").hide();
 	$(".highscore").hide();
 	$(".section_chat").hide();
-
-	$(".chatBtn").click(function() {
-		$(".section_chat").animate({width:'toggle'},250);
-	});
+	$(".chatBtn").hide();
 
 	$(".highscoreBtn").click(function() {
 		$(".section_highscore").animate({width:'toggle'},350);
@@ -38,12 +35,28 @@ $(document).ready(function() {
 		$("#submitName").click(function() {
 			userName = htmlEscape($("#userName").val());
 			SVHUB.server.login(userName);
+
+			$(".chatBtn").show();
+
+			$(".chatBtn").click(function() {
+				$(".chatBtn").removeClass("chatBtnEv");
+				$(".section_chat").animate({width:'toggle'},250);
+			});
+
 		});
 		$("#userName").keydown(function(e) {
 			if (e.which === 13) {
 				userName = htmlEscape($("#userName").val());
 				SVHUB.server.login(userName);
+				$(".chatBtn").show();
+
+				$(".chatBtn").click(function() {
+					$(".chatBtn").removeClass("chatBtnEv");
+					$(".section_chat").animate({width:'toggle'},250);
+				});
 			}
+
+
 		});
 		$("#nextPage").click(function() {
 
@@ -118,10 +131,14 @@ $(document).ready(function() {
 				SVHUB.server.changeFieldValues(enemyName, cellNb, rowNb);
 			}
 		});
-		$(document).on('click', '.sendMsg', function(){
-			var timeStamp = new Date();
-			msg = htmlEscape($(".chatInput").val());
-			SVHUB.Clients.All.receive("msg"+userName+": "+msg+" "+timeStamp);
+		$('.sendMsg').click(function(){
+			sendMsg();
+		});
+
+		$(".chatInput").keydown(function(e) {
+			if (e.which === 13) {
+				sendMsg();
+			}
 		});
 	});
 });
@@ -133,4 +150,22 @@ function htmlEscape(str) {
 		.replace(/'/g, '&#39;')
 		.replace(/</g, '&lt;')
 		.replace(/>/g, '&gt;');
+}
+
+function sendMsg(){
+	var timeStamp = new Date();
+	var h = checkTime(timeStamp.getHours());
+	var min = checkTime(timeStamp.getMinutes());
+	var sec = checkTime(timeStamp.getSeconds());
+	msg = htmlEscape($(".chatInput").val());
+	SVHUB.server.sendMsg("msg["+h+":"+min+":"+sec+"] "+userName+": "+msg+" ");
+	$(".chatInput").val("");
+}
+
+function checkTime(time) {
+	if(time<10){
+		time="0"+time;
+		return time;
+	}else{return time;}
+
 }

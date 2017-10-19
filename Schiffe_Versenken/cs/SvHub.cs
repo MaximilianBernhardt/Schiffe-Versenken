@@ -325,5 +325,9 @@ namespace Schiffe_Versenken
                 }
             }
         }
+        public void sendMsg(string msg)
+        {
+            Clients.All.receive(msg);
+        }
     }
 }

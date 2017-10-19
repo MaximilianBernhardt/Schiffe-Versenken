@@ -445,8 +445,32 @@ h2 {
     background-size: 40px 40px;
     z-index: 1000;
 }
+
+.chatBtnEv{
+    -webkit-animation-name: newMsg;
+    -webkit-animation-duration: 2s;
+    animation-name: newMsg;
+    animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: 6;
+}
+
+@-webkit-keyframes newMsg {
+    0% {background-color: rgba(0, 0, 0, 0.0);}
+    50% {background-color: red;}
+    100% {background-color: rgba(0, 0, 0, 0.0);}
+}
+@keyframes newMsg {
+    0% {background-color: rgba(0, 0, 0, 0.0);}
+    50% {background-color: red;}
+    100% {background-color: rgba(0, 0, 0, 0.0);}
+}
+
 .chatMsg{
+    padding: 10px;
     height: 160px;
     overflow-y: scroll;
     overflow-x: hidden;
+    color: white;
+    font-size: 16px;
 }

@@ -250,7 +250,11 @@ function controlMsg() {
 	}
 	if(typeof log[0] !== 'undefined' && log[0].search("msg")===0){
 		// $(".chatMsg").append("<li>"+userName+": "+log[0].substring()+"</li>"); //substring
-		$(".chatMsg").append("<li>"+log[0].substring(2)+"</li>");
+		$(".chatMsg").children().prepend("<li>"+log[0].substring(3)+"</li>");
+		console.log(log[0].search(userName));
+		if(log[0].search(userName)!==14) {
+			$(".chatBtn").addClass("chatBtnEv");
+		}
 		log = [];
 		currentLogNumber = 0;
 	}
