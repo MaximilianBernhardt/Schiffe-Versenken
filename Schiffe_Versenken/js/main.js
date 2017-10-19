@@ -60,11 +60,11 @@ $(document).ready(function() {
 		});
 		$("#nextPage").click(function() {
 
-			generateField($("#fieldSize").val());
-			fieldSet = true;
-			SVHUB.server.createField(size, playerId);
 			$(".section_myField_create").show();
 			if ($("#matchID").val() === "") {
+				generateField($("#fieldSize").val());
+				fieldSet = true;
+				SVHUB.server.createField(size, playerId);
 				SVHUB.server.createGame($("#difficulty").val(), playerId, size);
 				$(".section_two").hide();
 				$(".section_three").show();

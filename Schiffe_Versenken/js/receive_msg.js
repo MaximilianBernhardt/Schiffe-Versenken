@@ -23,6 +23,9 @@ function controlMsg() {
 		currentLogNumber = 0;
 	}
 	if (typeof log[0] !== 'undefined' && log[0] === "matchID_true") {
+		generateField($("#fieldSize").val());
+		fieldSet = true;
+		SVHUB.server.createField(size, playerId);
 		$(".section_two").hide();
 		$(".section_three").show();
 		matchID = $("#matchID").val();
