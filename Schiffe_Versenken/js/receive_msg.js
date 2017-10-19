@@ -221,6 +221,7 @@ function controlMsg() {
 		log = [];
 		currentLogNumber = 0;
 	}
+	//Hallo ich bin einn Test
 }
 
 
