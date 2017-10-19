@@ -35,7 +35,11 @@ var counterHit = 0;
 
 var shipSize;
 
-
+var countDestroyedBattleship = 0;
+var countDestroyedCruiser = 0;
+var countDestroyedDestroyer = 0;
+var countDestroyedSubmarine = 0;
+var countDestroyedDinghy = 0;
 
 var countBattleship = 0;
 var countCruiser = 0;

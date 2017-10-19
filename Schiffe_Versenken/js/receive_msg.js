@@ -170,46 +170,68 @@ function controlMsg() {
 			case "ship_destroy_true_10":
 				$(".sid10").removeClass("untilBurn");
 				$(".sid10").addClass("burnwater");
+				countDestroyedBattleship++;
+				$(".gameInfo_hitBattleship").html("Battleship: "+countDestroyedBattleship+"/1");
 				break;
 			case "ship_destroy_true_11":
 				$(".sid11").removeClass("untilBurn");
 				$(".sid11").addClass("burnwater");
+				countDestroyedCruiser++;
+				$(".gameInfo_hitCrusier").html("Crusier: "+countDestroyedCruiser+"/1");
 				break;
 			case "ship_destroy_true_12":
 				$(".sid12").removeClass("untilBurn");
 				$(".sid12").addClass("burnwater");
+				countDestroyedDestroyer++;
+				$(".gameInfo_hitDestroyer").html("Destroyer: "+countDestroyedDestroyer+"/2");
 				break;
 			case "ship_destroy_true_13":
 				$(".sid13").removeClass("untilBurn");
 				$(".sid13").addClass("burnwater");
+				countDestroyedDestroyer++;
+				$(".gameInfo_hitDestroyer").html("Destroyer: "+countDestroyedDestroyer+"/2");
 				break;
 			case "ship_destroy_true_14":
 				$(".sid14").removeClass("untilBurn");
 				$(".sid14").addClass("burnwater");
+				countDestroyedSubmarine++;
+				$(".gameInfo_hitSubmarine").html("Submarine: "+countDestroyedSubmarine+"/3");
 				break;
 			case "ship_destroy_true_15":
 				$(".sid15").removeClass("untilBurn");
 				$(".sid15").addClass("burnwater");
+				countDestroyedSubmarine++;
+				$(".gameInfo_hitSubmarine").html("Submarine: "+countDestroyedSubmarine+"/3");
 				break;
 			case "ship_destroy_true_16":
 				$(".sid16").removeClass("untilBurn");
 				$(".sid16").addClass("burnwater");
+				countDestroyedSubmarine++;
+				$(".gameInfo_hitSubmarine").html("Submarine: "+countDestroyedSubmarine+"/3");
 				break;
 			case "ship_destroy_true_17":
 				$(".sid17").removeClass("untilBurn");
 				$(".sid17").addClass("burnwater");
+				countDestroyedDinghy++;
+				$(".gameInfo_hitDinghy").html("Dinghy: "+countDestroyedDinghy+"/4");
 				break;
 			case "ship_destroy_true_18":
 				$(".sid18").removeClass("untilBurn");
 				$(".sid18").addClass("burnwater");
+				countDestroyedDinghy++;
+				$(".gameInfo_hitDinghy").html("Dinghy: "+countDestroyedDinghy+"/4");
 				break;
 			case "ship_destroy_true_19":
 				$(".sid19").removeClass("untilBurn");
 				$(".sid19").addClass("burnwater");
+				countDestroyedDinghy++;
+				$(".gameInfo_hitDinghy").html("Dinghy: "+countDestroyedDinghy+"/4");
 				break;
 			case "ship_destroy_true_20":
 				$(".sid20").removeClass("untilBurn");
 				$(".sid20").addClass("burnwater");
+				countDestroyedDinghy++;
+				$(".gameInfo_hitDinghy").html("Dinghy: "+countDestroyedDinghy+"/4");
 				break;
 		}
 
@@ -221,11 +243,6 @@ function controlMsg() {
 		log = [];
 		currentLogNumber = 0;
 	}
-<<<<<<< HEAD
-	//Hallo ich bin einn Test
-=======
-	// Ich bin aber trotzdem da ;)
->>>>>>> 2fa82ca50e4aeb3fd1b88e7aa0a9b5bb103f43e9
 }
 
 
