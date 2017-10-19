@@ -313,5 +313,17 @@ namespace Schiffe_Versenken
         {
             Clients.Others.receive("startGame");
         }
+
+        public void getHighscoreList()
+        {
+            using (getDbkConnection())
+            {
+                List<string> player = database.getAllWinner();
+                for (int i = 0; i < player.Count; i++)
+                {
+                    Clients.Caller.receive("AllWinner_" + database.countPlayerWin(player[i]) + "_" + player[i]);
+                }
+            }
+        }
     }
 }

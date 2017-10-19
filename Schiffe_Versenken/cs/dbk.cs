@@ -319,5 +319,33 @@ namespace Schiffe_Versenken
                 return true;
             }
         }
+        public List<string> getAllWinner()
+        {
+            List <string> result = new List<string>();
+            int i = 0;
+            com.CommandText = "SELECT DISTINCT winner FROM game WHERE winner IS NOT NULL";
+            com.ExecuteNonQuery();
+            MySqlDataReader reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                result.Add(reader.GetString(0));
+                i++;
+            }
+            reader.Close();
+            return result;
+        }
+        public int countPlayerWin(string name)
+        {
+            int result = 0;
+            com.CommandText = "SELECT COUNT(winner) FROM game WHERE winner = '" + name + "'";
+            com.ExecuteNonQuery();
+            MySqlDataReader reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                result = reader.GetInt32(0)/2;
+            }
+            reader.Close();
+            return result;
+        }
     }
 }

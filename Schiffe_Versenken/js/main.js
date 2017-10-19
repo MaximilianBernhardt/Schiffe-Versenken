@@ -5,6 +5,12 @@ $(document).ready(function() {
 	$("#btn_toLogin").click(function() {
 		location.reload();
 	});
+	$(".section_highscore").hide();
+	$(".highscore").hide();
+	$(".highscoreBtn").click(function() {
+		$(".section_highscore").animate({width:'toggle'},350);
+		$(".highscore").toggle(350);
+	});
 
 	SVHUB.client.receive = function(message) {
 		log[currentLogNumber] = message;
@@ -20,6 +26,9 @@ $(document).ready(function() {
 	});
 
 	$.connection.hub.start().done(function() {
+
+		SVHUB.server.getHighscoreList();
+
 		$("#submitName").click(function() {
 			userName = htmlEscape($("#userName").val());
 			SVHUB.server.login(userName);

@@ -221,11 +221,12 @@ function controlMsg() {
 		log = [];
 		currentLogNumber = 0;
 	}
-<<<<<<< HEAD
-	//Hallo ich bin einn Test
-=======
-	// Ich bin aber trotzdem da ;)
->>>>>>> 2fa82ca50e4aeb3fd1b88e7aa0a9b5bb103f43e9
+
+	if(typeof log[0] !== 'undefined' && log[0].search("AllWinner") === 0){
+		$(".highscore").append("<li>"+ log[0].substring(12) + ": " + log[0].substring(10,11) +"</li>");
+		log = [];
+		currentLogNumber = 0;
+	}
 }
 
 
