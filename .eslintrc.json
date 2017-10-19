@@ -1,0 +1,56 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-const-assign": "warn",
+        "no-this-before-super": "warn",
+        "no-undef": "off",
+        "no-unreachable": "warn",
+        "no-unused-vars": "off",
+        "constructor-super": "warn",
+        "valid-typeof": "warn"
+    },
+    "globals": {
+        "log":true ,
+        "SVHUB":true,
+        "userName":true,
+        "playerId":true,
+        "fieldSet":true,
+        "size":true,
+        "enemyName":true,
+        "matchID":true,
+        "currentLogNumber":true,
+        "checkFieldContent":true,
+        "checkReadyBtn":true,
+        "checkEnemyReadyBtn":true,
+        "enemyConnection":true,
+        "playerStarted":false,        
+        "myTurn":false,
+        "markedFieldPoint":true,
+        "countDestroyedShips":true,
+        "shipSettings":true,
+        "col":true,
+        "row":true,
+        "counterHit":true,
+        "shipSize":true,
+        "countBattleship":true,
+        "countCruiser":true,
+        "countDestroyer":true,
+        "countSubmarine":true,
+        "countDinghy":true,
+        "shipSelection":false,
+        "shipClass":true,
+        "thisIsTurned":true,
+        "isTurned":true
+    }
+}
