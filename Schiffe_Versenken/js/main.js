@@ -14,7 +14,6 @@ $(document).ready(function() {
 
 	$(document).on('mouseover', '.coordinate', function() {
 		$(".coordinate").removeClass("coordinateEvent");
-		console.log("Hover läuft");
 		if (myTurn === true) {
 			$(this).addClass("coordinateEvent");
 		}
@@ -32,6 +31,7 @@ $(document).ready(function() {
 			}
 		});
 		$("#nextPage").click(function() {
+
 			generateField($("#fieldSize").val());
 			fieldSet = true;
 			SVHUB.server.createField(size, playerId);
@@ -48,8 +48,6 @@ $(document).ready(function() {
 		});
 		$("#btn_startgame").click(function() {
 			var shipCounter = 0;
-			generateEnemyField(15);
-			generateMyField(15);
 			for (var i = 1; i <= 15; i++) {
 				shipSettings.push([]);
 				if (i === 1) {
@@ -64,13 +62,15 @@ $(document).ready(function() {
 						checkFieldContent === "dinghy3" || checkFieldContent === "dinghy4") {
 						shipCounter++;
 						shipSettings[i].push(checkFieldContent);
-						SVHUB.server.setFieldValues(playerId, "c" + j, i);
+						SVHUB.server.setFieldValues(playerId, "c" + j, i, checkFieldContent);
 					} else {
 						shipSettings[i].push("none");
 					}
 				}
 			}
 			if (shipCounter === 25) {
+				generateEnemyField(15);
+				generateMyField(15);
 				$(".section_three").hide();
 				$(".section_four").show();
 				$("#playerName").html("Habe Ausschau nach Gegnern Matrose!");
@@ -97,7 +97,7 @@ $(document).ready(function() {
 			var rowNb;
 			if (myTurn === true) {
 				markedFieldPoint = $(this);
-				console.log(markedFieldPoint);
+				var ship = $(this).attr('class');
 				cellNb = $(this).prop("id").substring(4, 6);
 				rowNb = parseInt($(this).parent().prop("id").substring(3, 5));
 				SVHUB.server.changeFieldValues(enemyName, cellNb, rowNb);

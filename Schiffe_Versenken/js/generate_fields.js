@@ -64,7 +64,41 @@ function generateMyField(size) {
 					checkFieldContent === "dinghy3" || checkFieldContent === "dinghy4") {
 					cell.addClass("ship");
 				}
-
+				// switch(checkFieldContent){
+				// 	case "battleship":
+				// 		cell.addClass("battleship");
+				// 		break;
+				// 	case "cruiser":
+				// 		cell.addClass("cruiser");
+				// 		break;
+				// 	case "destroyer1":
+				// 		cell.addClass("destroyer1");
+				// 		break;
+				// 	case "destroyer2":
+				// 		cell.addClass("destroyer2");
+				// 		break;
+				// 	case "submarine1":
+				// 		cell.addClass("submarine1");
+				// 		break;
+				// 	case "submarine2":
+				// 		cell.addClass("submarine2");
+				// 		break;
+				// 	case "submarine3":
+				// 		cell.addClass("submarine3");
+				// 		break;
+				// 	case "dinghy1":
+				// 		cell.addClass("dinghy1");
+				// 		break;
+				// 	case "dinghy2":
+				// 		cell.addClass("dinghy2");
+				// 		break;
+				// 	case "dinghy3":
+				// 		cell.addClass("dinghy3");
+				// 		break;
+				// 	case "dinghy4":
+				// 		cell.addClass("dinghy4");
+				// 		break;
+				// }
 			}
 		}
 	});

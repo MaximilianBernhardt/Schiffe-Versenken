@@ -170,7 +170,7 @@ namespace Schiffe_Versenken
 
             for (int i = 1; i < size + 1; i++)
             { 
-                com.CommandText = "SELECT COUNT(c" + i + ") FROM field WHERE ID = " + id + " AND c"+ i +" = 3" ;
+                com.CommandText = "SELECT COUNT(c" + i + ") FROM field WHERE ID = " + id + " AND c"+ i +" = 2" ;
                 com.ExecuteNonQuery();
                 MySqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
@@ -289,5 +289,35 @@ namespace Schiffe_Versenken
             }
         }
 
+        public Boolean checkShips(int playerID,  int checkFieldContent)
+        {
+            var counter = 0;
+            for (int i = 1; i <= 15; i++)
+            {
+                for (int j = 1; j <= 15; j++) {
+                    int result = 100;
+                    com.CommandText = "SELECT c" + i + " FROM field WHERE row = " + j + " AND c"+ i + " = "+ checkFieldContent + " AND ID = "+ playerID;
+                    com.ExecuteNonQuery();
+                    MySqlDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        result = reader.GetInt32(0);
+                    }
+                    reader.Close();
+                    if (result != checkFieldContent)
+                    {
+                        counter++;
+                    }
+                }
+            }
+            if (counter == 225)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

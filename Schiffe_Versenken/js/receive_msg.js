@@ -84,9 +84,16 @@ function controlMsg() {
 		currentLogNumber = 0;
 	}
 
+	if(typeof log[0] !== 'undefined' && log[0].search("sfld") === 0){
+		var shipID = log[0].substring(4);
+		markedFieldPoint.addClass("sid"+shipID);
+		log = [];
+		currentLogNumber = 0;
+	}
+
 	if (typeof log[0] !== 'undefined' && log[0] === "hit") {
 		console.log(markedFieldPoint);
-		markedFieldPoint.addClass("burnwater");
+		markedFieldPoint.addClass("untilBurn");
 		countDestroyedShips++;
 
 		$(".gameInfo_myHits").html("Deine Treffer : " + countDestroyedShips + "/25");
@@ -152,5 +159,85 @@ function controlMsg() {
 	}
 	if (typeof log[0] !== 'undefined' && log[0].search("matchID_DontExist") === 0) {
 		$("#errorMatchID").html("Dieser Einladungscode existiert nicht!");
+		log = [];
+		currentLogNumber = 0;
+
+	}
+	if(typeof log[0] !== 'undefined' && log[0].search("ship_destroy_true") === 0){
+		console.log("true");
+
+		switch(log[0]){
+			case "ship_destroy_true_10":
+				$(".sid10").removeClass("untilBurn");
+				$(".sid10").addClass("burnwater");
+				break;
+			case "ship_destroy_true_11":
+				$(".sid11").removeClass("untilBurn");
+				$(".sid11").addClass("burnwater");
+				break;
+			case "ship_destroy_true_12":
+				$(".sid12").removeClass("untilBurn");
+				$(".sid12").addClass("burnwater");
+				break;
+			case "ship_destroy_true_13":
+				$(".sid13").removeClass("untilBurn");
+				$(".sid13").addClass("burnwater");
+				break;
+			case "ship_destroy_true_14":
+				$(".sid14").removeClass("untilBurn");
+				$(".sid14").addClass("burnwater");
+				break;
+			case "ship_destroy_true_15":
+				$(".sid15").removeClass("untilBurn");
+				$(".sid15").addClass("burnwater");
+				break;
+			case "ship_destroy_true_16":
+				$(".sid16").removeClass("untilBurn");
+				$(".sid16").addClass("burnwater");
+				break;
+			case "ship_destroy_true_17":
+				$(".sid17").removeClass("untilBurn");
+				$(".sid17").addClass("burnwater");
+				break;
+			case "ship_destroy_true_18":
+				$(".sid18").removeClass("untilBurn");
+				$(".sid18").addClass("burnwater");
+				break;
+			case "ship_destroy_true_19":
+				$(".sid19").removeClass("untilBurn");
+				$(".sid19").addClass("burnwater");
+				break;
+			case "ship_destroy_true_20":
+				$(".sid20").removeClass("untilBurn");
+				$(".sid20").addClass("burnwater");
+				break;
+		}
+
+		log = [];
+		currentLogNumber = 0;
+	}
+	if(typeof log[0] !== 'undefined' && log[0].search("ship_destroy_false") === 0){
+		console.log("Kein Schiff wurde zerstört");
+		log = [];
+		currentLogNumber = 0;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

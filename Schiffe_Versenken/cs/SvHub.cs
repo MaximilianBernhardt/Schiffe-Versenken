@@ -126,40 +126,94 @@ namespace Schiffe_Versenken
                 column = "c" + column;
                 int enemyPlayerID = database.selectPlayer(enemyName);
                 int statusField = database.selectCell(enemyPlayerID, column, row);
-                switch (statusField)
-                {
-                    case 0:
-                        database.updateCell(enemyPlayerID, column, row, 1);
-                        Clients.Others.receive("turn_t");
-                        Clients.Others.receive("enemyFailed_column" + column.Substring(1));
-                        Clients.Others.receive("enemyFailed_row" + row);
-                        Clients.Caller.receive("turn_f");
-                        Clients.Caller.receive("failed");
-                        break;
 
-                    case 2:
-                        database.updateCell(enemyPlayerID, column, row, 3);
-                        Clients.Others.receive("turn_f");
-                        Clients.Others.receive("enemyHit_column" + column.Substring(1));
-                        Clients.Others.receive("enemyHit_row" + row);
-                        Clients.Caller.receive("turn_t");
-                        Clients.Caller.receive("hit");
-                        break;
+                if (statusField == 0)
+                {
+                    database.updateCell(enemyPlayerID, column, row, 1);
+                    Clients.Others.receive("turn_t");
+                    Clients.Others.receive("enemyFailed_column" + column.Substring(1));
+                    Clients.Others.receive("enemyFailed_row" + row);
+                    Clients.Caller.receive("turn_f");
+                    Clients.Caller.receive("failed");
+                } else if(statusField == 1|| statusField == 2)
+                {
+                    Clients.Others.receive("turn_f");
+                    Clients.Caller.receive("turn_t");
+                } else
+                {
+                    database.updateCell(enemyPlayerID, column, row, 2);
+                    Clients.Others.receive("turn_f");
+                    Clients.Others.receive("enemyHit_column" + column.Substring(1));
+                    Clients.Others.receive("enemyHit_row" + row);
+                    Clients.Caller.receive("turn_t");
+                    Clients.Caller.receive("hit");
+                    Clients.Caller.receive("sfld"+statusField);
+                }
+
+                if (database.checkShips(enemyPlayerID, statusField) == true)
+                {
+                    Clients.Caller.receive("ship_destroy_false");
+                }
+                else
+                {
+                    Clients.Caller.receive("ship_destroy_true_" + statusField);
                 }
             }
         }
-
         /// <summary>
         /// Ändert den Zellenwert auf 2
         /// </summary>
         /// <param name="playerID">ID des Spielers</param>
         /// <param name="column">Spalte</param>
         /// <param name="row">Reihe</param>
-        public void setFieldValues(int playerID, string column, int row)
+        public void setFieldValues(int playerID, string column, int row, string checkFieldContent)
         {
             using (getDbkConnection())
             {
-                database.updateCell(playerID, column, row, 2);
+                if (checkFieldContent.Equals("battleship"))
+                {
+                    database.updateCell(playerID, column, row, 10);
+                }
+                else if (checkFieldContent.Equals("cruiser"))
+                {
+                    database.updateCell(playerID, column, row, 11);
+                }
+                else if (checkFieldContent.Equals("destroyer1"))
+                {
+                    database.updateCell(playerID, column, row, 12);
+                }
+                else if (checkFieldContent.Equals("destroyer2"))
+                {
+                    database.updateCell(playerID, column, row, 13);
+                }
+                else if (checkFieldContent.Equals("submarine1"))
+                {
+                    database.updateCell(playerID, column, row, 14);
+                }
+                else if (checkFieldContent.Equals("submarine2"))
+                {
+                    database.updateCell(playerID, column, row, 15);
+                }
+                else if (checkFieldContent.Equals("submarine3"))
+                {
+                    database.updateCell(playerID, column, row, 16);
+                }
+                else if (checkFieldContent.Equals("dinghy1"))
+                {
+                    database.updateCell(playerID, column, row, 17);
+                }
+                else if (checkFieldContent.Equals("dinghy2"))
+                {
+                    database.updateCell(playerID, column, row, 18);
+                }
+                else if (checkFieldContent.Equals("dinghy3"))
+                {
+                    database.updateCell(playerID, column, row, 19);
+                }
+                else if (checkFieldContent.Equals("dinghy4"))
+                {
+                    database.updateCell(playerID, column, row, 20);
+                }
             }
         }
 

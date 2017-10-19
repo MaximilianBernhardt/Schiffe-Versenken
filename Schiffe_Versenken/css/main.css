@@ -1,4 +1,4 @@
-﻿*{
+﻿* {
     margin: 0px;
     padding: 0px;
     user-select: none;
@@ -12,7 +12,7 @@
     height: 100%;
 }
 
-h1{
+h1 {
     position: absolute;
     width: 100%;
     top: 5%;
@@ -21,11 +21,11 @@ h1{
     font-size: 100px;
 }
 
-.section_one h1{
+.section_one h1 {
     text-shadow: 2px 2px 6px white;
 }
 
-h2{
+h2 {
     color: white;
 }
 
@@ -48,11 +48,11 @@ h2{
     position: absolute;
     left: 40%;
     top: 40%;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     overflow: hidden;
 }
 
-.section_two_creategame{
+.section_two_creategame {
     display: block;
     width: 40%;
     min-width: 300px;
@@ -60,14 +60,16 @@ h2{
     position: absolute;
     left: 30%;
     top: 30%;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     padding: 70px;
     color: white;
 }
-.section_two_creategame_table{
+
+.section_two_creategame_table {
     border-spacing: 10px;
 }
-.section_three{
+
+.section_three {
     display: flex;
     justify-content: center;
     background-image: url("596905.jpg");
@@ -78,31 +80,34 @@ h2{
     position: absolute;
     bottom: 0px;
 }
-.section_three_left{
+
+.section_three_left {
     margin-top: 3px;
     margin-right: 20px;
 }
 
-.section_three_shipCounter{
+.section_three_shipCounter {
     color: white;
     font-size: 40px;
 }
-.shipCounter{
+
+.shipCounter {
     margin-top: 3px;
     margin-right: 20px;
 }
 
-.section_three_interface{
+.section_three_interface {
     display: flex;
     justify-content: center;
     width: auto;
     height: auto;
     position: absolute;
     top: 20%;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     padding: 10px;
 }
-.section_five_interface{
+
+.section_five_interface {
     display: block;
     float: left;
     width: 50%;
@@ -111,20 +116,23 @@ h2{
     position: absolute;
     top: 20%;
     left: 25%;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     padding: 10px;
 }
-#userName, #submitName, #errorMsg{
+
+#userName, #submitName, #errorMsg {
     border: none;
     margin-top: 80px;
     height: 40px;
 }
-#btn_back, #btn_startgame{
+
+#btn_back, #btn_startgame {
     height: 40px;
     border: none;
     padding: 2px;
 }
-#submitName{
+
+#submitName {
     padding-left: 4px;
     padding-right: 4px;
 }
@@ -135,50 +143,55 @@ h2{
     margin: 2px;
     background-color: #137791;
 }
-.coordinateUntouchable{
+
+.coordinateUntouchable {
     height: 20px;
     min-width: 20px;
     margin: 1px;
     background-color: #137791;
 }
 
-#fieldSize, #difficulty, #matchID, #nextPage{
+#fieldSize, #difficulty, #matchID, #nextPage {
     height: 35px;
     width: 90px;
     border: none;
 }
-#errorMsg{
+
+#errorMsg {
     margin-left: 5px;
     color: red;
 }
-#errorShips, #errorMatchID{
+
+#errorShips, #errorMatchID {
     color: red;
 }
 
-.section_info{
+.section_info {
     position: fixed;
     top: 0px;
     right: 0px;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     color: white;
     min-width: 40px;
     padding: 10px 5px;
     font-size: 20px;
 }
-#conCode{
+
+#conCode {
     position: fixed;
     top: 0px;
     right: 50%;
     padding: 10px 5px;
     font-size: 20px;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     color: white;
 }
-#gameInfo{
+
+#gameInfo {
     right: 50%;
 }
 
-.ship_selection{
+.ship_selection {
     height: 40px;
     border: solid;
     border-color: darkgrey;
@@ -186,35 +199,69 @@ h2{
     margin-bottom: 5px;
     text-align: center;
 }
-.ship_selection p{
+
+.ship_selection p {
     margin-top: 12px;
 }
 
-.btn_battleship{
+.btn_battleship {
     width: 200px;
 }
-.btn_cruiser{
+
+.btn_cruiser {
     width: 160px;
 }
-.btn_destroyer{
+
+.btn_destroyer {
     width: 120px;
 }
-.btn_submarine{  width: 80px;}
 
-.btn_dinghy{  width: 40px;}
+.btn_submarine {
+    width: 80px;
+}
+
+.btn_dinghy {
+    width: 40px;
+}
 
 /*.battleship, .cruiser, .destroyer1, .destroyer2, .submarine1, .submarine2, .submarine3, .dinghy1, .dinghy2, .dinghy3, .dinghy4{*/
-    /*background-color: grey;*/
+/*background-color: grey;*/
 /*}*/
-.battleship, .btn_battleship{background-image: url("battleship.jpg")}
-.cruiser, .btn_cruiser{background-image: url("cruiser.jpg");}
-.destroyer1, .destroyer2, .btn_destroyer{background-image: url("destroyer.jpg")}
-.submarine1, .submarine2, .submarine3, .btn_submarine{background-image: url("submarine.jpg"); color: white}
-.dinghy1, .dinghy2, .dinghy3, .dinghy4, .btn_dinghy{background-image: url("dinghy.jpg")}
+.battleship, .btn_battleship {
+    background-image: url("battleship.jpg");
+}
 
-.ship{background-color: grey;}
-.hit{background-color: red;}
-.failed{background-image: url("failedwater.png"); background-size: cover; background-position: center}
+.cruiser, .btn_cruiser {
+    background-image: url("cruiser.jpg");
+}
+
+.destroyer1, .destroyer2, .btn_destroyer {
+    background-image: url("destroyer.jpg");
+}
+
+.submarine1, .submarine2, .submarine3, .btn_submarine {
+    background-image: url("submarine.jpg");
+    color: white
+}
+
+.dinghy1, .dinghy2, .dinghy3, .dinghy4, .btn_dinghy {
+    background-image: url("dinghy.jpg");
+}
+
+.ship {
+    background-color: grey;
+}
+
+.hit {
+    background-color: red;
+}
+
+.failed {
+    background-image: url("failedwater.png");
+    background-size: cover;
+    background-position: center
+}
+
 .loader {
     border: 25px solid orange; /* Light grey */
     border-top: 25px solid yellow; /* Blue */
@@ -225,11 +272,15 @@ h2{
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.section_four_waiting{
+.section_four_waiting {
     display: flex;
     justify-content: center;
     position: absolute;
@@ -238,28 +289,32 @@ h2{
     height: 700px;
     margin-top: 50px;
     margin-bottom: 50px;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
 }
-.waitingMsg{
+
+.waitingMsg {
     color: white;
     position: absolute;
-    top:50px;
+    top: 50px;
 }
-.loader{
+
+.loader {
     position: absolute;
     bottom: 100px;
 }
 
-.section_enemyField{
+.section_enemyField {
     display: block !important;
 }
-.section_myField{
+
+.section_myField {
     display: block !important;
     position: absolute;
     right: 10px;
     bottom: 10px;
 }
-.gameInfoContainer{
+
+.gameInfoContainer {
     color: white;
     font-size: 20px;
     position: absolute;
@@ -269,22 +324,26 @@ h2{
 }
 
 /*.coordinate:hover{*/
-    /*background-image: url("bombe.jpg");*/
-    /*background-size: 40px 40px;*/
+/*background-image: url("bombe.jpg");*/
+/*background-size: 40px 40px;*/
 /*}*/
 
-.coordinateEvent{
-    background-image: url("bombe.jpg");
+.coordinateEvent {
+    background-image: url("bombe.png");
     background-size: 40px 40px;
 }
 
-.failedwater{
+.failedwater {
     background-image: url("failedwater.png");
 }
-.burnwater{
+
+.burnwater {
     background-image: url("burnwater.png");
 }
-#winner{
+.untilBurn{
+    background-image: url("untilBurn.png");
+}
+#winner {
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -298,7 +357,8 @@ h2{
     background-attachment: fixed;
     z-index: 10000;
 }
-#winnerMsg{
+
+#winnerMsg {
     color: black;
     text-shadow: 2px 2px 6px white;
     text-align: center;
@@ -306,47 +366,50 @@ h2{
     margin-top: 40px;
     z-index: 11000;
 }
-#btn_toLogin{
+
+#btn_toLogin {
     text-align: center;
     color: white;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     padding: 20px;
     width: 20%;
     position: absolute;
     left: 40%;
 }
-#btn_toLogin:hover{
+
+#btn_toLogin:hover {
     background-color: orange;
 }
+
 /*#timeoutBox{*/
-    /*position: absolute;*/
-    /*top:0px;*/
-    /*bottom: 46px;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*background-color: rgba(0,0,0,0.0);*/
-    /*z-index: 100;*/
-    /*animation-name: timeoutBoxAnmimation;*/
-    /*animation-duration: 2s;*/
+/*position: absolute;*/
+/*top:0px;*/
+/*bottom: 46px;*/
+/*width: 100%;*/
+/*height: 100%;*/
+/*background-color: rgba(0,0,0,0.0);*/
+/*z-index: 100;*/
+/*animation-name: timeoutBoxAnmimation;*/
+/*animation-duration: 2s;*/
 /*}*/
 
 /*@keyframes timeoutBoxAnmimation {*/
-    /*from {background-color: rgba(0,0,0,1.0)}*/
-    /*to{background-color: rgba(0,0,0,1.0)}*/
+/*from {background-color: rgba(0,0,0,1.0)}*/
+/*to{background-color: rgba(0,0,0,1.0)}*/
 /*}*/
 
 /*#loadingscreen{*/
-    /*width: 0%;*/
-    /*height: 0px;*/
-    /*background-color: #333333;*/
-    /*position: fixed;*/
-    /*top: 0px;*/
-    /*z-index: 1000;*/
-    /*animation-name: loadingAnmimation;*/
-    /*animation-duration: 2s;*/
+/*width: 0%;*/
+/*height: 0px;*/
+/*background-color: #333333;*/
+/*position: fixed;*/
+/*top: 0px;*/
+/*z-index: 1000;*/
+/*animation-name: loadingAnmimation;*/
+/*animation-duration: 2s;*/
 /*}*/
 
 /*@keyframes loadingAnmimation {*/
-    /*from {background-color: #333333; width: 0%}*/
-    /*to{background-color: greenyellow; width: 100%}*/
+/*from {background-color: #333333; width: 0%}*/
+/*to{background-color: greenyellow; width: 100%}*/
 /*}*/
