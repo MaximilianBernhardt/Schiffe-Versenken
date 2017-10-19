@@ -129,7 +129,6 @@ $(document).ready(function() {
  *
  * @param {Object} scope
  * @param {Int32Array} i
- * @return {Boolean}
  */
 function setShipHorizontal(scope, i) {
 

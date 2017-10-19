@@ -221,6 +221,7 @@ function controlMsg() {
 		log = [];
 		currentLogNumber = 0;
 	}
+	// Ich bin aber trotzdem da ;)
 }
 
 
