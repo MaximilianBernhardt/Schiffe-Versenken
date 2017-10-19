@@ -243,9 +243,14 @@ function controlMsg() {
 		log = [];
 		currentLogNumber = 0;
 	}
-
 	if(typeof log[0] !== 'undefined' && log[0].search("AllWinner") === 0){
 		$(".highscore").append("<li>"+ log[0].substring(12) + ": " + log[0].substring(10,11) +"</li>");
+		log = [];
+		currentLogNumber = 0;
+	}
+	if(typeof log[0] !== 'undefined' && log[0].search("msg")===0){
+		// $(".chatMsg").append("<li>"+userName+": "+log[0].substring()+"</li>"); //substring
+		$(".chatMsg").append("<li>"+log[0].substring(2)+"</li>");
 		log = [];
 		currentLogNumber = 0;
 	}

@@ -112,6 +112,11 @@ $(document).ready(function() {
 				SVHUB.server.changeFieldValues(enemyName, cellNb, rowNb);
 			}
 		});
+		$(document).on('click', '.sendMsg', function(){
+			var timeStamp = new Date();
+			msg = htmlEscape($(".chatInput").val());
+			SVHUB.Clients.All.receive("msg"+userName+": "+msg+" "+timeStamp);
+		});
 	});
 });
 

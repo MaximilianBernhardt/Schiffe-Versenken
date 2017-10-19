@@ -52,3 +52,5 @@ var shipClass;
 
 var thisIsTurned = [false, false, false, false, false, false, false, false, false, false, false];
 var isTurned = false;
+
+var msg;
