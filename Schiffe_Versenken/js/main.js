@@ -158,7 +158,10 @@ function sendMsg(){
 	var min = checkTime(timeStamp.getMinutes());
 	var sec = checkTime(timeStamp.getSeconds());
 	msg = htmlEscape($(".chatInput").val());
-	SVHUB.server.sendMsg("msg["+h+":"+min+":"+sec+"] "+userName+": "+msg+" ");
+	if(msg !== "") {
+		SVHUB.server.sendMsg("msg_[" + h + ":" + min + ":" + sec + "]_" + userName + ":_" + msg + " ");
+	}
+
 	$(".chatInput").val("");
 }
 

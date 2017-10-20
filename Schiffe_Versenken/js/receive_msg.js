@@ -253,9 +253,11 @@ function controlMsg() {
 	}
 	if(typeof log[0] !== 'undefined' && log[0].search("msg")===0){
 		// $(".chatMsg").append("<li>"+userName+": "+log[0].substring()+"</li>"); //substring
-		$(".chatMsg").children().prepend("<li>"+log[0].substring(3)+"</li>");
+		var tmp = log[0].split("_");
+		$(".chatMsg").children().prepend("<li>" + "<p style='color: darkgrey; display: inline'>" + tmp[1] + "</p>" + " "
+			+"<p style='color: red; display: inline'>" + " " + tmp[2] +"</p> " + tmp[3] + "</li>");
 		console.log(log[0].search(userName));
-		if(log[0].search(userName)!==14) {
+		if(log[0].search(userName)!==15) {
 			$(".chatBtn").addClass("chatBtnEv");
 		}
 		log = [];
