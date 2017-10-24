@@ -14,7 +14,7 @@ $(document).ready(function() {
 	
 
 	$(".highscoreBtn").click(function() {
-		$(".section_highscore").animate({width:'toggle'},350);
+		$(".section_highscore").animate({width: 'toggle'}, 350);
 		$(".highscore").toggle(350);
 	});
 	
@@ -50,7 +50,7 @@ $(document).ready(function() {
 
 			$(".chatBtn").click(function() {
 				$(".chatBtn").removeClass("chatBtnEv");
-				$(".section_chat").animate({width:'toggle'},250);
+				$(".section_chat").animate({width: 'toggle'}, 250);
 			});
 
 		});
@@ -65,17 +65,16 @@ $(document).ready(function() {
 
 				$(".chatBtn").click(function() {
 					$(".chatBtn").removeClass("chatBtnEv");
-					$(".section_chat").animate({width:'toggle'},250);
+					$(".section_chat").animate({width: 'toggle'}, 250);
 				});
 			}
 
-
 		});
 		$("#nextPage").click(function() {
-
-			$(".section_myField_create").show();
-			if ($("#matchID").val() === "") {
-				generateField($("#fieldSize").val());
+				$(".section_myField_create").show();
+				size = parseInt($("#fieldSize").val());
+				prepareFieldSize();
+				generateField(size);
 				fieldSet = true;
 				SVHUB.server.createField(size, playerId);
 				SVHUB.server.createGame($("#difficulty").val(), playerId, size);
@@ -85,25 +84,31 @@ $(document).ready(function() {
 
 				$(".section_infoBoxCreateGame").hide();
 				$(".section_infoBoxSetShips").show();
+		});
 
-			} else {
-				SVHUB.server.getGame(parseInt($("#matchID").val()), playerId, $("#difficulty").val(), size);
-				SVHUB.server.getPlayerNameFromMatch(parseInt($("#matchID").val()));
+		$("#enterGame").click(function() {
+			matchID = $("#matchID").val();
+			fieldSet = true;
+			if(matchID!=="") {
+				SVHUB.server.getGame(parseInt(matchID), playerId, $("#difficulty").val(), size);
+				SVHUB.server.getPlayerNameFromMatch(parseInt(matchID));
+				$("#playerName").html(userName + ", setzte deine Schiffe!");
 
-				
 				$(".section_infoBoxCreateGame").hide();
 				$(".section_infoBoxSetShips").show();
-
+			} else{
+				$("#errorMatchID").html("Bitte geben Sie einen Einladungs-Code ein!");
 			}
 		});
+
 		$("#btn_startgame").click(function() {
 			var shipCounter = 0;
-			for (var i = 1; i <= 15; i++) {
+			for (var i = 1; i <= size; i++) {
 				shipSettings.push([]);
 				if (i === 1) {
 					shipSettings.push([]);
 				}
-				for (var j = 1; j <= 15; j++) {
+				for (var j = 1; j <= size; j++) {
 					console.log($(".section_myField_create").children("#fieldTable").children("#row" + i).children("#cell" + j).prop("className").substring(11));
 					checkFieldContent = $(".section_myField_create").children("#fieldTable").children("#row" + i).children("#cell" + j).prop("className").substring(11);
 					if (checkFieldContent === "battleship" || checkFieldContent === "cruiser" || checkFieldContent === "destroyer1" ||
@@ -119,8 +124,8 @@ $(document).ready(function() {
 				}
 			}
 			if (shipCounter === 25) {
-				generateEnemyField(15);
-				generateMyField(15);
+				generateEnemyField(size);
+				generateMyField(size);
 				$(".section_three").hide();
 				$(".section_four").show();
 				$("#playerName").html("Habe Ausschau nach Gegnern Matrose!");
@@ -159,10 +164,11 @@ $(document).ready(function() {
 				var ship = $(this).attr('class');
 				cellNb = $(this).prop("id").substring(4, 6);
 				rowNb = parseInt($(this).parent().prop("id").substring(3, 5));
-				SVHUB.server.changeFieldValues(enemyName, cellNb, rowNb);
+				console.log(size);
+				SVHUB.server.changeFieldValues(enemyName, cellNb, rowNb, size);
 			}
 		});
-		$('.sendMsg').click(function(){
+		$('.sendMsg').click(function() {
 			sendMsg();
 		});
 
@@ -183,13 +189,13 @@ function htmlEscape(str) {
 		.replace(/>/g, '&gt;');
 }
 
-function sendMsg(){
+function sendMsg() {
 	var timeStamp = new Date();
 	var h = checkTime(timeStamp.getHours());
 	var min = checkTime(timeStamp.getMinutes());
 	var sec = checkTime(timeStamp.getSeconds());
 	msg = htmlEscape($(".chatInput").val());
-	if(msg !== "") {
+	if (msg !== "") {
 		SVHUB.server.sendMsg("msg_[" + h + ":" + min + ":" + sec + "]_" + userName + ":_" + msg + " ");
 	}
 
@@ -197,9 +203,53 @@ function sendMsg(){
 }
 
 function checkTime(time) {
-	if(time<10){
-		time="0"+time;
+	if (time < 10) {
+		time = "0" + time;
 		return time;
-	}else{return time;}
+	} else {
+		return time;
+	}
 
 }
+
+function prepareFieldSize(){
+	switch (size){
+		case 10:
+			$(".section_five_interface").css({"min-width":"800px"});
+			break;
+		case 12:
+			$(".section_five_interface").css({"min-width":"880px"});
+			break;
+		case 15:
+			$(".section_five_interface").css({"min-width":"1000px"});
+			break;
+		case 20:
+			$(".section_five_interface").css({"min-width":"1350px"});
+			break;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

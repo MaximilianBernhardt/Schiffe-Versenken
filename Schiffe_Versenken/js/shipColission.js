@@ -18,8 +18,8 @@ function shipCollisionVertical(fromRow, toRow, thisCellNb, shipClass, row) {
 
 	for (var h = fromRow; h < toRow; h++) {
 
-		if (h > 15) {
-			h = 15;
+		if (h > size) {
+			h = size;
 		}
 		currentShipPoint = row.parent().children("#row" + h).children("#cell" + thisCellNb).prop('className').substring(11);
 
@@ -51,11 +51,11 @@ function shipCollisionVertical(fromRow, toRow, thisCellNb, shipClass, row) {
  */
 function shipCollisionHorizontal(cellNb, shipEnd, row, shipClass) {
 	var countReturn = 0;
-	var currentShipPoint="";
+	var currentShipPoint = "";
 	for (var h = cellNb; h < shipEnd; h++) {
 
-		if (h > 15) {
-			h = 15;
+		if (h > size) {
+			h = size;
 		}
 
 		currentShipPoint = row.children("#cell" + h).prop('className').substring(11);

@@ -146,7 +146,7 @@ function setShipHorizontal(scope, i) {
 	shipEnd = cellNb + shipSize;
 
 	if (isTurned === false) {
-		if (shipEnd < 17) {
+		if (shipEnd < size + 2) {
 			if (shipCollisionHorizontal(cellNb, shipEnd, row, shipClass) === true) {
 				$(".fieldPoint").removeClass(shipClass);
 				thisIsTurned[i] = false;
@@ -157,7 +157,7 @@ function setShipHorizontal(scope, i) {
 				thisIsTurned[i] = true;
 			}
 		}
-		if (shipEnd >= 17) {
+		if (shipEnd >= size + 2) {
 			if (shipCollisionHorizontalNegative(cellNb, shipEnd, row, shipClass) === true) {
 				$(".fieldPoint").removeClass(shipClass);
 				thisIsTurned[i] = false;
@@ -170,7 +170,7 @@ function setShipHorizontal(scope, i) {
 		}
 	} else {
 		shipEnd = rowNb + shipSize;
-		if (shipEnd < 17) {
+		if (shipEnd < size + 2) {
 			if (shipCollisionVertical(rowNb, shipEnd, cellNb, shipClass, row) === true) {
 				$(".fieldPoint").removeClass(shipClass);
 				thisIsTurned[i] = true;
@@ -181,7 +181,7 @@ function setShipHorizontal(scope, i) {
 				thisIsTurned[i] = false;
 			}
 		}
-		if (shipEnd >= 17) {
+		if (shipEnd >= size + 2) {
 			if (shipCollisionVerticalNegative(rowNb, shipEnd, cellNb, shipClass, row) === true) {
 				$(".fieldPoint").removeClass(shipClass);
 				thisIsTurned[i] = true;
@@ -226,7 +226,7 @@ function setShipVertical(scope, i) {
 	if (isTurned === false) {
 		if (shipSelection === true) {
 			shipEnd = cellNb + shipSize;
-			if (shipEnd <= 16) {
+			if (shipEnd <= size + 1) {
 				if (shipCollisionHorizontal(cellNb, shipEnd, row, shipClass) === true) {
 					$(".fieldPoint").removeClass(shipClass);
 					for (var i = cellNb; i < shipEnd; i++) {
@@ -236,7 +236,7 @@ function setShipVertical(scope, i) {
 					}
 				}
 			}
-			if (shipEnd > 16) {
+			if (shipEnd > size + 1) {
 				if (shipCollisionHorizontalNegative(cellNb, shipEnd, row, shipClass) === true) {
 					$(".fieldPoint").removeClass(shipClass);
 					for (var i = cellNb; i > cellNb - shipSize; i--) {
@@ -252,13 +252,13 @@ function setShipVertical(scope, i) {
 	} else {
 		if (shipSelection === true) {
 			shipEnd = rowNb + shipSize;
-			if (shipEnd < 17) {
+			if (shipEnd < size + 2) {
 				checkCase = true;
 				for (var i = rowNb; i < shipEnd; i++) {
 					shipCells.push([i, cellNb]);
 				}
 			}
-			if (shipEnd >= 17) {
+			if (shipEnd >= size + 2) {
 				checkCase = false;
 				for (var i = rowNb; i > rowNb - shipSize; i--) {
 					shipCells.push([i, cellNb]);
