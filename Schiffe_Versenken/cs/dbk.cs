@@ -109,14 +109,14 @@ namespace Schiffe_Versenken
         //erstellt neues Spielfeld
         public void insertField(int size, int id)
         {
-            for (int i = 1; i <size; i++)
+            for (int i = 1; i <= size; i++)
             {
                 com.CommandText = "INSERT INTO field (ID,row) VALUE ('"+id+"','"+i+"')";
                 com.ExecuteNonQuery();
             }
             try
             {
-                for (int j = 1; j < size; j++)
+                for (int j = 1; j <= size; j++)
                 {
                     com.CommandText = "ALTER TABLE field ADD c" + j + " int NOT NULL DEFAULT 0";
                     com.ExecuteNonQuery();
@@ -134,7 +134,7 @@ namespace Schiffe_Versenken
             com.CommandText = "DELETE FROM field";
             com.ExecuteNonQuery();
 
-            for (int i = 1; i < size+1; i++)
+            for (int i = 1; i <= size; i++)
             {
                 com.CommandText = "ALTER TABLE field DROP COLUMN c"+i+"";
                 com.ExecuteNonQuery();
@@ -168,7 +168,7 @@ namespace Schiffe_Versenken
         {
             int destroyedUnits=0;
 
-            for (int i = 1; i < size + 1; i++)
+            for (int i = 1; i <= size; i++)
             { 
                 com.CommandText = "SELECT COUNT(c" + i + ") FROM field WHERE ID = " + id + " AND c"+ i +" = 2" ;
                 com.ExecuteNonQuery();
@@ -289,12 +289,12 @@ namespace Schiffe_Versenken
             }
         }
 
-        public Boolean checkShips(int playerID,  int checkFieldContent)
+        public Boolean checkShips(int playerID,  int checkFieldContent, int size)
         {
             var counter = 0;
-            for (int i = 1; i <= 15; i++)
+            for (int i = 1; i <= size; i++)
             {
-                for (int j = 1; j <= 15; j++) {
+                for (int j = 1; j <= size; j++) {
                     int result = 100;
                     com.CommandText = "SELECT c" + i + " FROM field WHERE row = " + j + " AND c"+ i + " = "+ checkFieldContent + " AND ID = "+ playerID;
                     com.ExecuteNonQuery();
@@ -310,7 +310,7 @@ namespace Schiffe_Versenken
                     }
                 }
             }
-            if (counter == 225)
+            if (counter == size*size)
             {
                 return false;
             }
@@ -343,6 +343,20 @@ namespace Schiffe_Versenken
             while (reader.Read())
             {
                 result = reader.GetInt32(0)/2;
+            }
+            reader.Close();
+            return result;
+        }
+
+        public int selectSize(int matchID)
+        {
+            int result = 0;
+            com.CommandText = "SELECT size FROM game WHERE matchID =" + matchID;
+            com.ExecuteNonQuery();
+            MySqlDataReader reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                result = reader.GetInt32(0);
             }
             reader.Close();
             return result;

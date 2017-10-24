@@ -102,8 +102,10 @@ namespace Schiffe_Versenken
         {
             using (getDbkConnection())
             {
+                size = database.selectSize(matchID);
                 if (database.joinGame(matchID, playerID, difficulty, size) == true)
                 {
+                    Clients.Caller.receive("size" + size);
                     Clients.Caller.receive("matchID_true");
                 }
                 else
@@ -119,7 +121,7 @@ namespace Schiffe_Versenken
         /// <param name="enemyName">Gegnerrischer Name</param>
         /// <param name="column">Spalte</param>
         /// <param name="row">Reihe</param>
-        public void changeFieldValues(string enemyName, string column, int row)
+        public void changeFieldValues(string enemyName, string column, int row, int size)
         {
             using (getDbkConnection())
             {
@@ -150,7 +152,7 @@ namespace Schiffe_Versenken
                     Clients.Caller.receive("sfld"+statusField);
                 }
 
-                if (database.checkShips(enemyPlayerID, statusField) == true)
+                if (database.checkShips(enemyPlayerID, statusField, size) == true)
                 {
                     Clients.Caller.receive("ship_destroy_false");
                 }
@@ -238,8 +240,10 @@ namespace Schiffe_Versenken
         //gibt die Anzahl versenkter Schiffseinheiten aus
         public void destroyUnit(int playerID, int size)
         {
-            getDbkConnection();
-            Clients.Caller.receive("<li>Erledigte Schiffseinheiten: "+ database.countDestroyedUnits(playerID, size) + "/4</li>");
+            using (getDbkConnection())
+            {
+                Clients.Caller.receive("<li>Erledigte Schiffseinheiten: " + database.countDestroyedUnits(playerID, size) + "/4</li>");
+            }
         }
 
         //setzt Schiffe ins Spielfeld

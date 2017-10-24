@@ -22,10 +22,16 @@ function controlMsg() {
 		log = [];
 		currentLogNumber = 0;
 	}
-	if (typeof log[0] !== 'undefined' && log[0] === "matchID_true") {
-		generateField($("#fieldSize").val());
+	if(typeof log[0] !== 'undefined' && log[0].search("size")===0){
+		size = parseInt(log[0].substring(4));
+		prepareFieldSize();
+		generateField(size);
 		fieldSet = true;
 		SVHUB.server.createField(size, playerId);
+		log = [];
+		currentLogNumber = 0;
+	}
+	if (typeof log[0] !== 'undefined' && log[0] === "matchID_true") {
 		$(".section_two").hide();
 		$(".section_three").show();
 		matchID = $("#matchID").val();
@@ -87,9 +93,9 @@ function controlMsg() {
 		currentLogNumber = 0;
 	}
 
-	if(typeof log[0] !== 'undefined' && log[0].search("sfld") === 0){
+	if (typeof log[0] !== 'undefined' && log[0].search("sfld") === 0) {
 		var shipID = log[0].substring(4);
-		markedFieldPoint.addClass("sid"+shipID);
+		markedFieldPoint.addClass("sid" + shipID);
 		log = [];
 		currentLogNumber = 0;
 	}
@@ -105,7 +111,7 @@ function controlMsg() {
 		if (countDestroyedShips === 25) {
 			$.connection.hub.start().done(function() {
 				SVHUB.server.setWinner(matchID, userName);
-				SVHUB.server.removeField(15);
+				SVHUB.server.removeField(size);
 			});
 		}
 	}
@@ -166,98 +172,98 @@ function controlMsg() {
 		currentLogNumber = 0;
 
 	}
-	if(typeof log[0] !== 'undefined' && log[0].search("ship_destroy_true") === 0){
+	if (typeof log[0] !== 'undefined' && log[0].search("ship_destroy_true") === 0) {
 		console.log("true");
 
-		switch(log[0]){
+		switch (log[0]) {
 			case "ship_destroy_true_10":
 				$(".sid10").removeClass("untilBurn");
 				$(".sid10").addClass("burnwater");
 				countDestroyedBattleship++;
-				$(".gameInfo_hitBattleship").html("Battleship: "+countDestroyedBattleship+"/1");
+				$(".gameInfo_hitBattleship").html("Battleship: " + countDestroyedBattleship + "/1");
 				break;
 			case "ship_destroy_true_11":
 				$(".sid11").removeClass("untilBurn");
 				$(".sid11").addClass("burnwater");
 				countDestroyedCruiser++;
-				$(".gameInfo_hitCrusier").html("Crusier: "+countDestroyedCruiser+"/1");
+				$(".gameInfo_hitCrusier").html("Crusier: " + countDestroyedCruiser + "/1");
 				break;
 			case "ship_destroy_true_12":
 				$(".sid12").removeClass("untilBurn");
 				$(".sid12").addClass("burnwater");
 				countDestroyedDestroyer++;
-				$(".gameInfo_hitDestroyer").html("Destroyer: "+countDestroyedDestroyer+"/2");
+				$(".gameInfo_hitDestroyer").html("Destroyer: " + countDestroyedDestroyer + "/2");
 				break;
 			case "ship_destroy_true_13":
 				$(".sid13").removeClass("untilBurn");
 				$(".sid13").addClass("burnwater");
 				countDestroyedDestroyer++;
-				$(".gameInfo_hitDestroyer").html("Destroyer: "+countDestroyedDestroyer+"/2");
+				$(".gameInfo_hitDestroyer").html("Destroyer: " + countDestroyedDestroyer + "/2");
 				break;
 			case "ship_destroy_true_14":
 				$(".sid14").removeClass("untilBurn");
 				$(".sid14").addClass("burnwater");
 				countDestroyedSubmarine++;
-				$(".gameInfo_hitSubmarine").html("Submarine: "+countDestroyedSubmarine+"/3");
+				$(".gameInfo_hitSubmarine").html("Submarine: " + countDestroyedSubmarine + "/3");
 				break;
 			case "ship_destroy_true_15":
 				$(".sid15").removeClass("untilBurn");
 				$(".sid15").addClass("burnwater");
 				countDestroyedSubmarine++;
-				$(".gameInfo_hitSubmarine").html("Submarine: "+countDestroyedSubmarine+"/3");
+				$(".gameInfo_hitSubmarine").html("Submarine: " + countDestroyedSubmarine + "/3");
 				break;
 			case "ship_destroy_true_16":
 				$(".sid16").removeClass("untilBurn");
 				$(".sid16").addClass("burnwater");
 				countDestroyedSubmarine++;
-				$(".gameInfo_hitSubmarine").html("Submarine: "+countDestroyedSubmarine+"/3");
+				$(".gameInfo_hitSubmarine").html("Submarine: " + countDestroyedSubmarine + "/3");
 				break;
 			case "ship_destroy_true_17":
 				$(".sid17").removeClass("untilBurn");
 				$(".sid17").addClass("burnwater");
 				countDestroyedDinghy++;
-				$(".gameInfo_hitDinghy").html("Dinghy: "+countDestroyedDinghy+"/4");
+				$(".gameInfo_hitDinghy").html("Dinghy: " + countDestroyedDinghy + "/4");
 				break;
 			case "ship_destroy_true_18":
 				$(".sid18").removeClass("untilBurn");
 				$(".sid18").addClass("burnwater");
 				countDestroyedDinghy++;
-				$(".gameInfo_hitDinghy").html("Dinghy: "+countDestroyedDinghy+"/4");
+				$(".gameInfo_hitDinghy").html("Dinghy: " + countDestroyedDinghy + "/4");
 				break;
 			case "ship_destroy_true_19":
 				$(".sid19").removeClass("untilBurn");
 				$(".sid19").addClass("burnwater");
 				countDestroyedDinghy++;
-				$(".gameInfo_hitDinghy").html("Dinghy: "+countDestroyedDinghy+"/4");
+				$(".gameInfo_hitDinghy").html("Dinghy: " + countDestroyedDinghy + "/4");
 				break;
 			case "ship_destroy_true_20":
 				$(".sid20").removeClass("untilBurn");
 				$(".sid20").addClass("burnwater");
 				countDestroyedDinghy++;
-				$(".gameInfo_hitDinghy").html("Dinghy: "+countDestroyedDinghy+"/4");
+				$(".gameInfo_hitDinghy").html("Dinghy: " + countDestroyedDinghy + "/4");
 				break;
 		}
 
 		log = [];
 		currentLogNumber = 0;
 	}
-	if(typeof log[0] !== 'undefined' && log[0].search("ship_destroy_false") === 0){
+	if (typeof log[0] !== 'undefined' && log[0].search("ship_destroy_false") === 0) {
 		console.log("Kein Schiff wurde zerstört");
 		log = [];
 		currentLogNumber = 0;
 	}
-	if(typeof log[0] !== 'undefined' && log[0].search("AllWinner") === 0){
-		$(".highscore").append("<li>"+ log[0].substring(12) + ": " + log[0].substring(10,11) +"</li>");
+	if (typeof log[0] !== 'undefined' && log[0].search("AllWinner") === 0) {
+		$(".highscore").append("<li>" + log[0].substring(12) + ": " + log[0].substring(10, 11) + "</li>");
 		log = [];
 		currentLogNumber = 0;
 	}
-	if(typeof log[0] !== 'undefined' && log[0].search("msg")===0){
+	if (typeof log[0] !== 'undefined' && log[0].search("msg") === 0) {
 		// $(".chatMsg").append("<li>"+userName+": "+log[0].substring()+"</li>"); //substring
 		var tmp = log[0].split("_");
 		$(".chatMsg").children().prepend("<li>" + "<p style='color: darkgrey; display: inline'>" + tmp[1] + "</p>" + " "
-			+"<p style='color: red; display: inline'>" + " " + tmp[2] +"</p> " + tmp[3] + "</li>");
+			+ "<p style='color: red; display: inline'>" + " " + tmp[2] + "</p> " + tmp[3] + "</li>");
 		console.log(log[0].search(userName));
-		if(log[0].search(userName)!==15) {
+		if (log[0].search(userName) !== 15) {
 			$(".chatBtn").addClass("chatBtnEv");
 		}
 		log = [];

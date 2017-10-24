@@ -31,34 +31,49 @@
     <div class="section_one page">
         <h1>Schiffe versenken</h1> </br>
         <div class="section_one_login">
-            <input id="userName" type="text" placeholder=" Name" maxlength="9" />
+            <input id="userName" type="text" placeholder="Name" maxlength="9" />
             <button id="submitName">Login</button>
             <p id="errorMsg"></p>
         </div>
     </div>
     <div class="section_two page">
         <div class="section_two_creategame">
-            <h2>Spiel erstellen</h2>
+
             <table class="section_two_creategame_table">
+                <tr>
+                    <td><h2>Spiel erstellen</h2></td>
+                </tr>
                 <tr>
                     <td><p>Größe: </p></td>
                     <td><select id="fieldSize">
+                        <option>10</option>
+                        <option>12</option>
                         <option>15</option>
+                        <option>20</option>
                     </select></td>
+
                 </tr>
                 <tr>
                     <td><p>Schwierigkeitsgrad: </p></td>
                     <td><select id="difficulty">
                         <option>Leicht</option>
                     </select></td>
+                    <td><p>Einladungs-Code: </p></td>
+                    <td><input id="matchID" type="number" placeholder="MatchID"></td>
                 </tr>
                 <tr>
-                    <td><p>Einladungs-Code: </p></td>
-                    <td><input id="matchID" type="number" placeholder=" MatchID"></td>
+                    <td></td>
+                    <td><button id="nextPage">Erstellen</button></td>
+                    <td></td>
+                    <td><button id="enterGame">Beitreten</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><p id="errorMatchID"></p></td>
                 </tr>
             </table>
-            <button id="nextPage">Erstellen</button>
-            <p id="errorMatchID"></p>
         </div>
     </div>
 
@@ -108,14 +123,15 @@
                 <p class="gameInfo_hitDestroyer">Destroyer: 0/2</p>
                 <p class="gameInfo_hitSubmarine">Submarine: 0/3</p>
                 <p class="gameInfo_hitDinghy">Dinghy: 0/4</p>
-            </div>
-
-            <div class="section_myField">
-                <table id='fieldTableMy'></table>
+                <br>
+                <br>
             </div>
 
             <div class="section_enemyField">
                 <table id='fieldTableEnemy'></table>
+            </div>
+            <div class="section_myField">
+                <table id='fieldTableMy'></table>
             </div>
         </div>
     </div>

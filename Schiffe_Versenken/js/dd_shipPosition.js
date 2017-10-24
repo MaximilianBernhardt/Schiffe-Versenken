@@ -264,8 +264,8 @@ function resetShipCounter() {
 function setCountShip(ship) {
 	var checkFieldContent;
 	var counter = 0;
-	for (var i = 1; i <= 15; i++) {
-		for (var j = 1; j <= 15; j++) {
+	for (var i = 1; i <= size; i++) {
+		for (var j = 1; j <= size; j++) {
 			checkFieldContent = $(".section_myField_create").children("#fieldTable").children("#row" + i).children("#cell" + j).prop("className").substring(11);
 			if (checkFieldContent === ship) {
 				counter++;

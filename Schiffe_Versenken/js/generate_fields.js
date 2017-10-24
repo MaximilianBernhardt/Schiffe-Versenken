@@ -28,7 +28,6 @@ function generateEnemyField(size) {
 			$(row).append(cell);
 		}
 	}
-	this.size = size;
 }
 
 /**
@@ -67,7 +66,6 @@ function generateMyField(size) {
 			}
 		}
 	});
-	this.size = size;
 }
 
 /**
@@ -98,5 +96,4 @@ function generateField(size) {
 			$(row).append(cell);
 		}
 	}
-	this.size = size;
 }
