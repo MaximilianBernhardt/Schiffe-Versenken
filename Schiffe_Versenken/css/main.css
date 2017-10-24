@@ -180,7 +180,37 @@ h2 {
     padding: 10px 5px;
     font-size: 20px;
 }
-
+.infoBtn {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    height: 40px;
+    width: 40px;
+    background-image: url("info_question.png");
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.75);
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    z-index: 100001;
+}
+.section_infoBox{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: 100000; 
+    border-bottom-left-radius: 40px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding-bottom: 50px;
+    width: 400px;
+    height: auto;
+}
+.sIB_h2{
+    color: cornflowerblue;
+}
+.sIB_h5{
+    color: darkgray;
+}
 #conCode {
     position: fixed;
     top: 0px;
@@ -386,10 +416,10 @@ h2 {
 }
 .section_highscore{
     position: absolute;
-    bottom: 0px;
+    top: 0px;
     left: 0px;
     width: 150px;
-    height: 100%;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 1000;
     color: white;

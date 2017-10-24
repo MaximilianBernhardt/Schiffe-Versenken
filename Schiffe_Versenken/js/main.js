@@ -1,18 +1,25 @@
 $(document).ready(function() {
 
-	$(".section_two, .section_three, .section_myField, .section_myField_create, .section_enemyField, .section_info, .section_four, .section_five, #winner").hide();
+	$(".section_infoBox, .section_two, .section_three, .section_myField, .section_myField_create, .section_enemyField, .section_info, .section_four, .section_five, #winner").hide();
 
 	$("#btn_toLogin").click(function() {
 		location.reload();
 	});
+	$(".section_infoBoxLogin, .section_infoBoxCreateGame, .section_infoBoxSetShips, .section_infoBoxPlay, .section_infoBoxWinner, .section_infoBoxWait").hide();
 	$(".section_highscore").hide();
 	$(".highscore").hide();
 	$(".section_chat").hide();
 	$(".chatBtn").hide();
+	$(".section_infoBoxLogin").show();
+	
 
 	$(".highscoreBtn").click(function() {
 		$(".section_highscore").animate({width:'toggle'},350);
 		$(".highscore").toggle(350);
+	});
+	
+	$(".infoBtn").click(function(){
+		$(".section_infoBox").animate({width:'toggle', height: 'toggle'},250);
 	});
 
 	SVHUB.client.receive = function(message) {
@@ -37,6 +44,9 @@ $(document).ready(function() {
 			SVHUB.server.login(userName);
 
 			$(".chatBtn").show();
+				
+			$(".section_infoBoxLogin").hide();
+			$(".section_infoBoxCreateGame").show();
 
 			$(".chatBtn").click(function() {
 				$(".chatBtn").removeClass("chatBtnEv");
@@ -49,6 +59,9 @@ $(document).ready(function() {
 				userName = htmlEscape($("#userName").val());
 				SVHUB.server.login(userName);
 				$(".chatBtn").show();
+				
+				$(".section_infoBoxLogin").hide();
+				$(".section_infoBoxCreateGame").show();
 
 				$(".chatBtn").click(function() {
 					$(".chatBtn").removeClass("chatBtnEv");
@@ -69,9 +82,18 @@ $(document).ready(function() {
 				$(".section_two").hide();
 				$(".section_three").show();
 				$("#playerName").html(userName + ", setzte deine Schiffe!");
+
+				$(".section_infoBoxCreateGame").hide();
+				$(".section_infoBoxSetShips").show();
+
 			} else {
 				SVHUB.server.getGame(parseInt($("#matchID").val()), playerId, $("#difficulty").val(), size);
 				SVHUB.server.getPlayerNameFromMatch(parseInt($("#matchID").val()));
+
+				
+				$(".section_infoBoxCreateGame").hide();
+				$(".section_infoBoxSetShips").show();
+
 			}
 		});
 		$("#btn_startgame").click(function() {
@@ -103,6 +125,10 @@ $(document).ready(function() {
 				$(".section_four").show();
 				$("#playerName").html("Habe Ausschau nach Gegnern Matrose!");
 				$("#gameInfo").html("Einladungs-Code: " + matchID);
+
+				$(".section_infoBoxSetShips").hide();
+				$(".section_infoBoxWait").show();
+				
 				checkReadyBtn = true;
 				playerStarted = true;
 				SVHUB.server.playerStarted();
@@ -112,6 +138,11 @@ $(document).ready(function() {
 			if (enemyConnection === true && checkEnemyReadyBtn === true && checkReadyBtn === true) {
 				$(".section_four").hide();
 				$(".section_five").show();
+
+				$(".section_infoBoxSetShips").hide();
+				$(".section_infoBoxWait").hide();
+				$(".section_infoBoxPlay").show();
+
 				$(".section_info").html("Dein Gegner ist dran!");
 				$(".coordinate").css({"background-color": "rgba(19, 119, 145, 0.5)"});
 				$("#fieldTableEnemy").css({"border-style": "solid", "border-color": "red"});

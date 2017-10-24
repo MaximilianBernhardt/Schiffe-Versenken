@@ -63,6 +63,9 @@ function controlMsg() {
 		if (enemyConnection === true && checkEnemyReadyBtn === true && checkReadyBtn === true) {
 			$(".section_four").hide();
 			$(".section_five").show();
+			$(".section_infoBoxSetShips").hide();
+			$(".section_infoBoxWait").hide();
+			$(".section_infoBoxPlay").show();
 		}
 		log = [];
 		currentLogNumber = 0;
@@ -130,6 +133,10 @@ function controlMsg() {
 		$("#winner").show();
 		$(".section_five").hide();
 		$(".section_info").hide();
+
+		$(".section_infoBoxPlay").hide();
+		$(".section_infoBoxWinner").show();
+
 		log = [];
 		currentLogNumber = 0;
 	}
